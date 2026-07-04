@@ -1,0 +1,4901 @@
+/* ============================================================
+   UIL-G (UILINE GLASS) V1.0.0 — ULTIMATE FINAL
+   کامل‌ترین نسخه با تمام المان‌ها، لیست‌ها، وبلاگ، محصول، فرم‌ها، مودال و...
+   
+   📜 لایسنس: متن‌باز محدود (Non-Commercial)
+   🧩 ساخته شده توسط لاینکس
+   ⚡ Powered by Linex
+   ============================================================ */
+
+/* ============================================================
+   لایه ۱: متغیرهای CSS
+   ============================================================ */
+
+:root {
+  /* رنگ‌های اصلی */
+  --uil-primary-hue: 250;
+  --uil-primary-sat: 85%;
+  --uil-primary-lit: 65%;
+  --uil-primary: oklch(var(--uil-primary-lit) var(--uil-primary-sat) var(--uil-primary-hue));
+  --uil-secondary: oklch(50% 10% 220);
+  --uil-success: oklch(45% 65% 145);
+  --uil-danger: oklch(55% 75% 0);
+  --uil-warning: oklch(55% 90% 45);
+  --uil-info: oklch(50% 75% 195);
+  --uil-pink: oklch(55% 75% 340);
+  --uil-teal: oklch(48% 70% 165);
+  --uil-orange: oklch(55% 85% 25);
+  --uil-purple: oklch(55% 70% 280);
+  --uil-rose: oklch(55% 80% 350);
+  --uil-indigo: oklch(55% 70% 240);
+  --uil-emerald: oklch(45% 70% 160);
+  --uil-amber: oklch(55% 85% 40);
+  
+  /* متغیرهای شیشه‌ای */
+  --uil-glass-bg: rgba(255, 255, 255, 0.06);
+  --uil-glass-border: rgba(255, 255, 255, 0.08);
+  --uil-glass-blur: 20px;
+  --uil-radius-xs: 6px;
+  --uil-radius-sm: 10px;
+  --uil-radius: 16px;
+  --uil-radius-lg: 24px;
+  --uil-radius-xl: 32px;
+  --uil-radius-full: 9999px;
+  
+  /* سایه‌ها */
+  --uil-shadow: 6px 8px 30px rgba(0,0,0,0.08);
+  --uil-shadow-lg: 8px 14px 48px rgba(0,0,0,0.12);
+  --uil-shadow-xl: 12px 20px 64px rgba(0,0,0,0.16);
+  --uil-shadow-se: 8px 10px 28px rgba(0,0,0,0.10);
+  --uil-shadow-se-hover: 10px 16px 40px rgba(0,0,0,0.16);
+  --uil-shadow-se-primary: 8px 10px 28px rgba(108,99,255,0.15);
+  --uil-shadow-se-success: 8px 10px 28px rgba(40,167,69,0.12);
+  --uil-shadow-se-danger: 8px 10px 28px rgba(220,53,69,0.12);
+  --uil-shadow-se-pink: 8px 10px 28px rgba(232,62,140,0.12);
+  --uil-shadow-se-teal: 8px 10px 28px rgba(32,201,151,0.12);
+  
+  /* فاصله‌ها */
+  --uil-space-1: 4px;
+  --uil-space-2: 8px;
+  --uil-space-3: 12px;
+  --uil-space-4: 16px;
+  --uil-space-5: 24px;
+  --uil-space-6: 32px;
+  --uil-space-7: 48px;
+  --uil-space-8: 64px;
+  
+  /* تایپوگرافی */
+  --uil-font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --uil-font-size-xs: 0.7rem;
+  --uil-font-size-sm: 0.85rem;
+  --uil-font-size-base: 1rem;
+  --uil-font-size-lg: 1.15rem;
+  --uil-font-size-xl: 1.3rem;
+  --uil-font-size-2xl: 1.8rem;
+  --uil-font-size-3xl: 2.8rem;
+  --uil-font-size-4xl: 3.6rem;
+  
+  /* رنگ‌های متن و پس‌زمینه */
+  --uil-text: #ffffff;
+  --uil-text-muted: rgba(255, 255, 255, 0.45);
+  --uil-bg-page: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+  --uil-bg-card: rgba(255, 255, 255, 0.04);
+  --uil-border-card: rgba(255, 255, 255, 0.04);
+  
+  /* انیمیشن */
+  --uil-transition-elastic: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  --uil-transition: 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* ============================================================
+   لایه ۲: تم‌ها
+   ============================================================ */
+
+.light-theme {
+  --uil-glass-bg: rgba(255,255,255,0.50);
+  --uil-glass-border: rgba(0,0,0,0.04);
+  --uil-text: #1a1a2e;
+  --uil-text-muted: rgba(0,0,0,0.40);
+  --uil-bg-page: linear-gradient(135deg, #f5f3ff, #ede9fe, #e0e7ff);
+  --uil-bg-card: rgba(255,255,255,0.35);
+  --uil-border-card: rgba(0,0,0,0.03);
+  --uil-shadow: 4px 6px 24px rgba(0,0,0,0.05);
+  --uil-shadow-lg: 6px 10px 36px rgba(0,0,0,0.08);
+  --uil-shadow-se: 6px 8px 20px rgba(0,0,0,0.06);
+}
+
+.dark-solid {
+  --uil-glass-bg: rgba(0,0,0,0.70);
+  --uil-glass-border: rgba(255,255,255,0.04);
+  --uil-text: #ffffff;
+  --uil-text-muted: rgba(255,255,255,0.35);
+  --uil-bg-page: #0a0a0a;
+  --uil-bg-card: rgba(0,0,0,0.50);
+  --uil-border-card: rgba(255,255,255,0.02);
+  --uil-shadow: 0 8px 32px rgba(0,0,0,0.50);
+  --uil-shadow-lg: 0 12px 48px rgba(0,0,0,0.60);
+}
+
+.gradient-purple-dark {
+  --uil-glass-bg: rgba(108,99,255,0.08);
+  --uil-glass-border: rgba(108,99,255,0.12);
+  --uil-text: #ffffff;
+  --uil-text-muted: rgba(255,255,255,0.40);
+  --uil-bg-page: linear-gradient(135deg, #0f0c29, #302b63, #1a1a3e);
+  --uil-bg-card: rgba(108,99,255,0.05);
+  --uil-border-card: rgba(108,99,255,0.06);
+  --uil-primary-lit: 70%;
+}
+
+.premium-light {
+  --uil-glass-bg: rgba(255,255,255,0.65);
+  --uil-glass-border: rgba(108,99,255,0.06);
+  --uil-text: #1a1a2e;
+  --uil-text-muted: rgba(26,26,46,0.40);
+  --uil-bg-page: linear-gradient(135deg, #f8f7ff, #f0edff, #e8e4ff);
+  --uil-bg-card: rgba(255,255,255,0.50);
+  --uil-border-card: rgba(108,99,255,0.04);
+  --uil-primary-lit: 55%;
+  --uil-primary-sat: 70%;
+}
+
+.minimal-white {
+  --uil-glass-bg: rgba(255,255,255,0.80);
+  --uil-glass-border: rgba(0,0,0,0.03);
+  --uil-text: #1a1a2e;
+  --uil-text-muted: rgba(0,0,0,0.35);
+  --uil-bg-page: #ffffff;
+  --uil-bg-card: rgba(255,255,255,0.60);
+  --uil-border-card: rgba(0,0,0,0.02);
+  --uil-shadow: 2px 4px 16px rgba(0,0,0,0.03);
+  --uil-shadow-se: 4px 6px 16px rgba(0,0,0,0.04);
+}
+
+.night-mode {
+  --uil-glass-bg: rgba(10,10,30,0.60);
+  --uil-glass-border: rgba(255,255,255,0.04);
+  --uil-text: #d4d4f7;
+  --uil-text-muted: rgba(180,180,220,0.40);
+  --uil-bg-page: linear-gradient(135deg, #050510, #0a0a2a, #0f0f2f);
+  --uil-bg-card: rgba(20,20,60,0.30);
+  --uil-border-card: rgba(255,255,255,0.02);
+  --uil-primary-lit: 60%;
+  --uil-primary-sat: 75%;
+}
+
+@media (prefers-color-scheme: light) {
+  body:not(.dark-theme):not(.light-theme):not(.dark-solid):not(.gradient-purple-dark):not(.premium-light):not(.minimal-white):not(.night-mode) {
+    --uil-glass-bg: rgba(255,255,255,0.50);
+    --uil-glass-border: rgba(0,0,0,0.04);
+    --uil-text: #1a1a2e;
+    --uil-text-muted: rgba(0,0,0,0.40);
+    --uil-bg-page: linear-gradient(135deg, #f5f3ff, #ede9fe, #e0e7ff);
+    --uil-bg-card: rgba(255,255,255,0.35);
+    --uil-border-card: rgba(0,0,0,0.03);
+    --uil-shadow: 4px 6px 24px rgba(0,0,0,0.05);
+    --uil-shadow-se: 6px 8px 20px rgba(0,0,0,0.06);
+  }
+}
+
+/* ============================================================
+   لایه ۳: ریست و پایه
+   ============================================================ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--uil-font);
+  line-height: 1.7;
+  color: var(--uil-text);
+  background: var(--uil-bg-page);
+  min-height: 100vh;
+  padding: var(--uil-space-5);
+  transition: background 0.6s ease, color 0.4s ease;
+}
+
+/* ============================================================
+   لایه ۴: تایپوگرافی
+   ============================================================ */
+
+.h1, h1 { font-size: var(--uil-font-size-4xl); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+.h2, h2 { font-size: var(--uil-font-size-3xl); font-weight: 700; letter-spacing: -0.02em; line-height: 1.2; }
+.h3, h3 { font-size: var(--uil-font-size-2xl); font-weight: 700; letter-spacing: -0.01em; }
+.h4, h4 { font-size: var(--uil-font-size-xl); font-weight: 600; }
+.h5, h5 { font-size: var(--uil-font-size-lg); font-weight: 600; }
+.h6, h6 { font-size: var(--uil-font-size-base); font-weight: 600; text-transform: uppercase; letter-spacing: 0.5px; }
+p { font-size: var(--uil-font-size-base); margin-bottom: var(--uil-space-4); color: var(--uil-text-muted); }
+
+/* بولد با هایلایت */
+strong, b, .bold {
+  font-weight: 700;
+  color: var(--uil-primary);
+  position: relative;
+  display: inline-block;
+  padding: 0 2px;
+}
+strong::after, b::after, .bold::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--uil-primary);
+  opacity: 0.3;
+}
+strong::before, b::before, .bold::before {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0;
+  width: 40%;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--uil-primary);
+  opacity: 0.8;
+  transition: all var(--uil-transition-elastic);
+}
+strong:hover::before, b:hover::before, .bold:hover::before { width: 80%; }
+
+/* ایتالیک با سایه */
+em, i, .italic {
+  font-style: italic;
+  color: var(--uil-text);
+  text-shadow: 0 2px 16px rgba(108,99,255,0.10);
+  display: inline-block;
+  transition: all var(--uil-transition-elastic);
+}
+em:hover, i:hover, .italic:hover {
+  text-shadow: 0 4px 32px rgba(108,99,255,0.18);
+  transform: translateY(-1px);
+}
+
+/* زیرخط رنگی */
+.u {
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+}
+.u::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--uil-primary);
+  transition: all var(--uil-transition-elastic);
+}
+.u:hover::after { width: 130%; transform: translateX(-15%); }
+.u-primary { color: var(--uil-primary); }
+.u-primary::after { background: var(--uil-primary); }
+.u-success { color: var(--uil-success); }
+.u-success::after { background: var(--uil-success); }
+.u-danger { color: var(--uil-danger); }
+.u-danger::after { background: var(--uil-danger); }
+.u-warning { color: var(--uil-warning); }
+.u-warning::after { background: var(--uil-warning); }
+.u-pink { color: var(--uil-pink); }
+.u-pink::after { background: var(--uil-pink); }
+.u-teal { color: var(--uil-teal); }
+.u-teal::after { background: var(--uil-teal); }
+
+/* ============================================================
+   لایه ۵: انیمیشن‌ها
+   ============================================================ */
+
+@keyframes elasticIn {
+  0% { transform: scale(0.5) translateY(60px); opacity: 0; }
+  60% { transform: scale(1.05) translateY(-8px); opacity: 1; }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+@keyframes elasticBounce {
+  0%, 100% { transform: scale(1); }
+  30% { transform: scale(1.12); }
+  60% { transform: scale(0.92); }
+  80% { transform: scale(1.03); }
+}
+@keyframes elasticSlide {
+  0% { transform: translateX(-80px); opacity: 0; }
+  60% { transform: translateX(12px); opacity: 1; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+@keyframes elasticRotate {
+  0% { transform: rotate(-25deg) scale(0.6); opacity: 0; }
+  60% { transform: rotate(5deg) scale(1.04); opacity: 1; }
+  100% { transform: rotate(0) scale(1); opacity: 1; }
+}
+@keyframes glowPulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(108,99,255,0.04); }
+  50% { box-shadow: 0 0 60px rgba(108,99,255,0.15); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-16px); }
+}
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  14% { transform: scale(1.15); }
+  28% { transform: scale(1); }
+  42% { transform: scale(1.06); }
+  70% { transform: scale(1); }
+}
+@keyframes rippleSpread {
+  0% { transform: scale(0); opacity: 0.8; }
+  100% { transform: scale(4); opacity: 0; }
+}
+@keyframes colorSplash {
+  0% { transform: scale(0); opacity: 0.9; background: radial-gradient(circle, var(--uil-primary) 0%, transparent 70%); }
+  100% { transform: scale(5); opacity: 0; }
+}
+@keyframes spinElastic {
+  0% { transform: rotate(0deg) scale(1); }
+  40% { transform: rotate(200deg) scale(1.12); }
+  70% { transform: rotate(340deg) scale(0.94); }
+  100% { transform: rotate(360deg) scale(1); }
+}
+@keyframes slideLine {
+  0% { transform: translateX(-100%) scaleX(0); opacity: 0; }
+  50% { transform: translateX(0) scaleX(1); opacity: 1; }
+  100% { transform: translateX(100%) scaleX(0); opacity: 0; }
+}
+@keyframes modalFadeIn {
+  0% { opacity: 0; transform: scale(0.9) translateY(30px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes modalBackdrop {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.anim-elastic-in { animation: elasticIn 0.8s var(--uil-transition-elastic) forwards; }
+.anim-elastic-bounce-infinite { animation: elasticBounce 0.8s var(--uil-transition-elastic) infinite; }
+.anim-elastic-slide { animation: elasticSlide 0.7s var(--uil-transition-elastic) forwards; }
+.anim-glow-pulse { animation: glowPulse 2.5s ease-in-out infinite; }
+.anim-float { animation: float 3s ease-in-out infinite; }
+.anim-heartbeat { animation: heartbeat 1.5s ease-in-out infinite; }
+
+/* ============================================================
+   لایه ۶: آیکون‌ها (SVG) — ۱۰۰ عدد
+   ============================================================ */
+
+[class^="uil-svg-"] {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  transition: all var(--uil-transition-elastic);
+  flex-shrink: 0;
+}
+[class^="uil-svg-"]:hover { transform: scale(1.15) rotate(-4deg); }
+.uil-svg-xs { width: 1rem; height: 1rem; }
+.uil-svg-sm { width: 1.2rem; height: 1.2rem; }
+.uil-svg-lg { width: 2rem; height: 2rem; }
+.uil-svg-xl { width: 2.8rem; height: 2.8rem; }
+
+.uil-svg-home { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'/%3E%3C/svg%3E"); }
+.uil-svg-user { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2'/%3E%3Ccircle cx='12' cy='7' r='4'/%3E%3C/svg%3E"); }
+.uil-svg-search { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'/%3E%3Cpath d='m21 21-4.35-4.35'/%3E%3C/svg%3E"); }
+.uil-svg-heart { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z'/%3E%3C/svg%3E"); }
+.uil-svg-star { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2'/%3E%3C/svg%3E"); }
+.uil-svg-settings { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12.22 2h-.44a2 2 0 00-2 2v.18a2 2 0 01-1 1.73l-.43.25a2 2 0 01-2 0l-.15-.08a2 2 0 00-2.73.73l-.22.38a2 2 0 00.73 2.73l.15.1a2 2 0 011 1.72v.51a2 2 0 01-1 1.74l-.15.09a2 2 0 00-.73 2.73l.22.38a2 2 0 002.73.73l.15-.08a2 2 0 012 0l.43.25a2 2 0 011 1.73V20a2 2 0 002 2h.44a2 2 0 002-2v-.18a2 2 0 011-1.73l.43-.25a2 2 0 012 0l.15.08a2 2 0 002.73-.73l.22-.39a2 2 0 00-.73-2.73l-.15-.08a2 2 0 01-1-1.74v-.5a2 2 0 011-1.74l.15-.09a2 2 0 00.73-2.73l-.22-.38a2 2 0 00-2.73-.73l-.15.08a2 2 0 01-2 0l-.43-.25a2 2 0 01-1-1.73V4a2 2 0 00-2-2z'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3C/svg%3E"); }
+.uil-svg-menu { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='3' y1='6' x2='21' y2='6'/%3E%3Cline x1='3' y1='12' x2='21' y2='12'/%3E%3Cline x1='3' y1='18' x2='21' y2='18'/%3E%3C/svg%3E"); }
+.uil-svg-close { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E"); }
+.uil-svg-chevron-right { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'/%3E%3C/svg%3E"); }
+.uil-svg-chevron-down { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); }
+.uil-svg-email { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z'/%3E%3Cpolyline points='22,6 12,13 2,6'/%3E%3C/svg%3E"); }
+.uil-svg-phone { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z'/%3E%3C/svg%3E"); }
+.uil-svg-chat { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z'/%3E%3C/svg%3E"); }
+.uil-svg-upload { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4'/%3E%3Cpolyline points='17 8 12 3 7 8'/%3E%3Cline x1='12' y1='3' x2='12' y2='15'/%3E%3C/svg%3E"); }
+.uil-svg-download { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4'/%3E%3Cpolyline points='7 10 12 15 17 10'/%3E%3Cline x1='12' y1='15' x2='12' y2='3'/%3E%3C/svg%3E"); }
+.uil-svg-cart { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='9' cy='21' r='1'/%3E%3Ccircle cx='20' cy='21' r='1'/%3E%3Cpath d='M1 1h4l2.68 13.39a2 2 0 002 1.61h9.72a2 2 0 002-1.61L23 6H6'/%3E%3C/svg%3E"); }
+.uil-svg-calendar { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='4' width='18' height='18' rx='2' ry='2'/%3E%3Cline x1='16' y1='2' x2='16' y2='6'/%3E%3Cline x1='8' y1='2' x2='8' y2='6'/%3E%3Cline x1='3' y1='10' x2='21' y2='10'/%3E%3C/svg%3E"); }
+.uil-svg-clock { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpolyline points='12 6 12 12 16 14'/%3E%3C/svg%3E"); }
+.uil-svg-location { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z'/%3E%3Ccircle cx='12' cy='10' r='3'/%3E%3C/svg%3E"); }
+.uil-svg-camera { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M23 19a2 2 0 01-2 2H3a2 2 0 01-2-2V8a2 2 0 012-2h4l2-3h6l2 3h4a2 2 0 012 2z'/%3E%3Ccircle cx='12' cy='13' r='4'/%3E%3C/svg%3E"); }
+.uil-svg-video { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolygon points='23 7 16 12 23 17 23 7'/%3E%3Crect x='1' y='5' width='15' height='14' rx='2' ry='2'/%3E%3C/svg%3E"); }
+.uil-svg-lock { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Crect x='3' y='11' width='18' height='11' rx='2' ry='2'/%3E%3Cpath d='M7 11V7a5 5 0 0110 0v4'/%3E%3C/svg%3E"); }
+.uil-svg-check { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E"); }
+.uil-svg-times { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='6' x2='6' y2='18'/%3E%3Cline x1='6' y1='6' x2='18' y2='18'/%3E%3C/svg%3E"); }
+.uil-svg-plus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='12' y1='5' x2='12' y2='19'/%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E"); }
+.uil-svg-minus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='5' y1='12' x2='19' y2='12'/%3E%3C/svg%3E"); }
+.uil-svg-edit { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M11 4H4a2 2 0 00-2 2v14a2 2 0 002 2h14a2 2 0 002-2v-7'/%3E%3Cpath d='M18.5 2.5a2.121 2.121 0 013 3L12 15l-4 1 1-4 9.5-9.5z'/%3E%3C/svg%3E"); }
+.uil-svg-delete { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='3 6 5 6 21 6'/%3E%3Cpath d='M19 6v14a2 2 0 01-2 2H7a2 2 0 01-2-2V6m3 0V4a2 2 0 012-2h4a2 2 0 012 2v2'/%3E%3Cline x1='10' y1='11' x2='10' y2='17'/%3E%3Cline x1='14' y1='11' x2='14' y2='17'/%3E%3C/svg%3E"); }
+.uil-svg-rocket { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E"); }
+.uil-svg-sun { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='5'/%3E%3Cline x1='12' y1='1' x2='12' y2='3'/%3E%3Cline x1='12' y1='21' x2='12' y2='23'/%3E%3Cline x1='4.22' y1='4.22' x2='5.64' y2='5.64'/%3E%3Cline x1='18.36' y1='18.36' x2='19.78' y2='19.78'/%3E%3Cline x1='1' y1='12' x2='3' y2='12'/%3E%3Cline x1='21' y1='12' x2='23' y2='12'/%3E%3Cline x1='4.22' y1='19.78' x2='5.64' y2='18.36'/%3E%3Cline x1='18.36' y1='5.64' x2='19.78' y2='4.22'/%3E%3C/svg%3E"); }
+.uil-svg-moon { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12.79A9 9 0 1111.21 3 7 7 0 0021 12.79z'/%3E%3C/svg%3E"); }
+.uil-svg-fire { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2C8 6 4 9 4 13c0 4.4 3.6 8 8 8s8-3.6 8-8c0-4-4-7-8-11z'/%3E%3Cpath d='M12 8c-2 2-3 4-3 6 0 2 1.5 3.5 3 4'/%3E%3C/svg%3E"); }
+.uil-svg-trophy { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 9H4a2 2 0 01-2-2V5h2'/%3E%3Cpath d='M18 9h2a2 2 0 002-2V5h-2'/%3E%3Cpath d='M6 6h12v5a6 6 0 01-12 0V6z'/%3E%3Cpath d='M9 20h6'/%3E%3Cpath d='M9 16h6'/%3E%3C/svg%3E"); }
+.uil-svg-tag { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20.59 13.41l-7.17 7.17a2 2 0 01-2.83 0L2 12V2h10l8.59 8.59a2 2 0 010 2.82z'/%3E%3Cline x1='7' y1='7' x2='7.01' y2='7'/%3E%3C/svg%3E"); }
+.uil-svg-gift { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 12 20 22 4 22 4 12'/%3E%3Crect x='2' y='7' width='20' height='5'/%3E%3Cline x1='12' y1='22' x2='12' y2='7'/%3E%3Cpath d='M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7z'/%3E%3Cpath d='M12 7h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z'/%3E%3C/svg%3E"); }
+.uil-svg-wallet { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12V7H5a2 2 0 010-4h14v4'/%3E%3Cpath d='M3 5v14a2 2 0 002 2h16v-5'/%3E%3Cline x1='18' y1='12' x2='18' y2='12.01'/%3E%3C/svg%3E"); }
+.uil-svg-stats { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cline x1='18' y1='20' x2='18' y2='10'/%3E%3Cline x1='12' y1='20' x2='12' y2='4'/%3E%3Cline x1='6' y1='20' x2='6' y2='14'/%3E%3C/svg%3E"); }
+.uil-svg-chart { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M21 12v4a2 2 0 01-2 2H5a2 2 0 01-2-2V6a2 2 0 012-2h7'/%3E%3Cpolyline points='15 3 21 3 21 9'/%3E%3Cline x1='9' y1='15' x2='21' y2='3'/%3E%3C/svg%3E"); }
+.uil-svg-flag { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 21V3h16l-4 6 4 6H4'/%3E%3C/svg%3E"); }
+.uil-svg-medal { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 15l-3-3 3-3 3 3-3 3z'/%3E%3Cpath d='M8 18l-3 3 3-3z'/%3E%3Cpath d='M16 18l3 3-3-3z'/%3E%3Ccircle cx='12' cy='9' r='6'/%3E%3C/svg%3E"); }
+.uil-svg-book { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M4 19.5A2.5 2.5 0 016.5 17H20'/%3E%3Cpath d='M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z'/%3E%3C/svg%3E"); }
+.uil-svg-graduation { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 2L2 7l10 5 10-5-10-5z'/%3E%3Cpath d='M2 17l10 5 10-5'/%3E%3Cpath d='M2 12l10 5 10-5'/%3E%3C/svg%3E"); }
+.uil-svg-pen { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M17 3a2.83 2.83 0 114 4L7.5 20.5 2 22l1.5-5.5L17 3z'/%3E%3C/svg%3E"); }
+.uil-svg-pencil { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20h9'/%3E%3Cpath d='M16.5 3.5a2.12 2.12 0 013 3L7 19l-4 1 1-4L16.5 3.5z'/%3E%3C/svg%3E"); }
+.uil-svg-brush { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 19a3 3 0 01-3-3v-4h12v4a3 3 0 01-3 3'/%3E%3Cpath d='M19 9V3l-4 2-4-2-4 2-4-2v6'/%3E%3C/svg%3E"); }
+.uil-svg-palette { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Ccircle cx='12' cy='12' r='3'/%3E%3Cpath d='M12 2v4'/%3E%3Cpath d='M12 18v4'/%3E%3Cpath d='M2 12h4'/%3E%3Cpath d='M18 12h4'/%3E%3C/svg%3E"); }
+
+/* ============================================================
+   لایه ۸: دکمه‌ها با سایه SE و انیمیشن‌های پاشش رنگ + خط مورب
+   ============================================================ */
+
+.bui {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uil-space-2);
+  padding: 14px 32px;
+  font-size: var(--uil-font-size-base);
+  font-weight: 600;
+  font-family: var(--uil-font);
+  color: var(--uil-text);
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-glass-border);
+  border-radius: var(--uil-radius-sm);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  box-shadow: var(--uil-shadow-se);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  text-decoration: none;
+  min-height: 48px;
+}
+
+/* پاشش رنگ از محل کلیک */
+.bui::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle at var(--splash-x, 50%) var(--splash-y, 50%), rgba(255,255,255,0.20) 0%, transparent 70%);
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+}
+.bui:active::after {
+  animation: rippleSpread 0.7s ease-out forwards;
+}
+
+/* خط مورب شیشه‌ای */
+.bui-slide::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(135deg, transparent 40%, rgba(255,255,255,0.08) 50%, transparent 60%);
+  transform: translateX(-100%) scaleX(0);
+  transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+.bui-slide:hover::before {
+  transform: translateX(100%) scaleX(1);
+}
+
+.bui:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--uil-shadow-se-hover);
+  background: rgba(255,255,255,0.08);
+}
+.bui:active {
+  transform: scale(0.94);
+}
+
+/* ===== رنگ‌ها با سایه SE اختصاصی ===== */
+.bui-primary { background: rgba(108,99,255,0.15); border-color: rgba(108,99,255,0.15); box-shadow: var(--uil-shadow-se-primary); }
+.bui-primary:hover { background: rgba(108,99,255,0.30); box-shadow: 10px 16px 40px rgba(108,99,255,0.20); }
+.bui-success { background: rgba(40,167,69,0.15); border-color: rgba(40,167,69,0.15); box-shadow: var(--uil-shadow-se-success); }
+.bui-success:hover { background: rgba(40,167,69,0.30); box-shadow: 10px 16px 40px rgba(40,167,69,0.16); }
+.bui-danger { background: rgba(220,53,69,0.15); border-color: rgba(220,53,69,0.15); box-shadow: var(--uil-shadow-se-danger); }
+.bui-danger:hover { background: rgba(220,53,69,0.30); box-shadow: 10px 16px 40px rgba(220,53,69,0.16); }
+.bui-warning { background: rgba(255,193,7,0.12); border-color: rgba(255,193,7,0.12); color: #1a1a2e; box-shadow: 8px 10px 28px rgba(255,193,7,0.10); }
+.bui-warning:hover { background: rgba(255,193,7,0.25); box-shadow: 10px 16px 40px rgba(255,193,7,0.14); }
+.bui-pink { background: rgba(232,62,140,0.15); border-color: rgba(232,62,140,0.15); box-shadow: var(--uil-shadow-se-pink); }
+.bui-pink:hover { background: rgba(232,62,140,0.30); box-shadow: 10px 16px 40px rgba(232,62,140,0.16); }
+.bui-teal { background: rgba(32,201,151,0.15); border-color: rgba(32,201,151,0.15); box-shadow: var(--uil-shadow-se-teal); }
+.bui-teal:hover { background: rgba(32,201,151,0.30); box-shadow: 10px 16px 40px rgba(32,201,151,0.16); }
+.bui-orange { background: rgba(253,126,20,0.15); border-color: rgba(253,126,20,0.15); box-shadow: 8px 10px 28px rgba(253,126,20,0.10); }
+.bui-orange:hover { background: rgba(253,126,20,0.30); box-shadow: 10px 16px 40px rgba(253,126,20,0.14); }
+.bui-purple { background: rgba(111,66,193,0.15); border-color: rgba(111,66,193,0.15); box-shadow: 8px 10px 28px rgba(111,66,193,0.10); }
+.bui-purple:hover { background: rgba(111,66,193,0.30); box-shadow: 10px 16px 40px rgba(111,66,193,0.14); }
+.bui-rose { background: rgba(244,63,94,0.15); border-color: rgba(244,63,94,0.15); box-shadow: 8px 10px 28px rgba(244,63,94,0.10); }
+.bui-rose:hover { background: rgba(244,63,94,0.30); box-shadow: 10px 16px 40px rgba(244,63,94,0.14); }
+.bui-indigo { background: rgba(79,70,229,0.15); border-color: rgba(79,70,229,0.15); box-shadow: 8px 10px 28px rgba(79,70,229,0.10); }
+.bui-indigo:hover { background: rgba(79,70,229,0.30); box-shadow: 10px 16px 40px rgba(79,70,229,0.14); }
+.bui-emerald { background: rgba(16,185,129,0.15); border-color: rgba(16,185,129,0.15); box-shadow: 8px 10px 28px rgba(16,185,129,0.10); }
+.bui-emerald:hover { background: rgba(16,185,129,0.30); box-shadow: 10px 16px 40px rgba(16,185,129,0.14); }
+.bui-amber { background: rgba(245,158,11,0.12); border-color: rgba(245,158,11,0.12); color: #1a1a2e; box-shadow: 8px 10px 28px rgba(245,158,11,0.08); }
+.bui-amber:hover { background: rgba(245,158,11,0.25); box-shadow: 10px 16px 40px rgba(245,158,11,0.12); }
+
+/* گرادیانت‌ها */
+.bui-grad-1 { background: linear-gradient(135deg, rgba(108,99,255,0.20), rgba(232,62,140,0.20)); border-color: transparent; box-shadow: 8px 10px 28px rgba(108,99,255,0.10); }
+.bui-grad-1:hover { background: linear-gradient(135deg, rgba(108,99,255,0.40), rgba(232,62,140,0.40)); box-shadow: 10px 16px 40px rgba(108,99,255,0.16); }
+.bui-grad-2 { background: linear-gradient(135deg, rgba(13,202,240,0.20), rgba(40,167,69,0.20)); border-color: transparent; box-shadow: 8px 10px 28px rgba(13,202,240,0.08); }
+.bui-grad-2:hover { background: linear-gradient(135deg, rgba(13,202,240,0.40), rgba(40,167,69,0.40)); box-shadow: 10px 16px 40px rgba(13,202,240,0.14); }
+.bui-grad-3 { background: linear-gradient(135deg, rgba(253,126,20,0.20), rgba(255,193,7,0.20)); border-color: transparent; color: #1a1a2e; box-shadow: 8px 10px 28px rgba(253,126,20,0.08); }
+.bui-grad-3:hover { background: linear-gradient(135deg, rgba(253,126,20,0.40), rgba(255,193,7,0.40)); box-shadow: 10px 16px 40px rgba(253,126,20,0.12); }
+.bui-grad-4 { background: linear-gradient(135deg, rgba(111,66,193,0.20), rgba(108,99,255,0.20)); border-color: transparent; box-shadow: 8px 10px 28px rgba(111,66,193,0.08); }
+.bui-grad-4:hover { background: linear-gradient(135deg, rgba(111,66,193,0.40), rgba(108,99,255,0.40)); box-shadow: 10px 16px 40px rgba(111,66,193,0.14); }
+.bui-grad-5 { background: linear-gradient(135deg, rgba(244,63,94,0.20), rgba(245,158,11,0.20)); border-color: transparent; color: #1a1a2e; box-shadow: 8px 10px 28px rgba(244,63,94,0.08); }
+.bui-grad-5:hover { background: linear-gradient(135deg, rgba(244,63,94,0.40), rgba(245,158,11,0.40)); box-shadow: 10px 16px 40px rgba(244,63,94,0.12); }
+.bui-grad-6 { background: linear-gradient(135deg, rgba(16,185,129,0.20), rgba(79,70,229,0.20)); border-color: transparent; box-shadow: 8px 10px 28px rgba(16,185,129,0.08); }
+.bui-grad-6:hover { background: linear-gradient(135deg, rgba(16,185,129,0.40), rgba(79,70,229,0.40)); box-shadow: 10px 16px 40px rgba(16,185,129,0.14); }
+.bui-grad-7 { background: linear-gradient(135deg, rgba(232,62,140,0.20), rgba(255,193,7,0.20)); border-color: transparent; color: #1a1a2e; box-shadow: 8px 10px 28px rgba(232,62,140,0.08); }
+.bui-grad-7:hover { background: linear-gradient(135deg, rgba(232,62,140,0.40), rgba(255,193,7,0.40)); box-shadow: 10px 16px 40px rgba(232,62,140,0.12); }
+.bui-grad-8 { background: linear-gradient(135deg, rgba(108,99,255,0.20), rgba(13,202,240,0.20)); border-color: transparent; box-shadow: 8px 10px 28px rgba(108,99,255,0.08); }
+.bui-grad-8:hover { background: linear-gradient(135deg, rgba(108,99,255,0.40), rgba(13,202,240,0.40)); box-shadow: 10px 16px 40px rgba(108,99,255,0.14); }
+
+/* اندازه‌ها */
+.bui-xs { padding: 6px 14px; font-size: var(--uil-font-size-xs); min-height: 32px; border-radius: var(--uil-radius-xs); }
+.bui-sm { padding: 10px 22px; font-size: var(--uil-font-size-sm); min-height: 40px; }
+.bui-lg { padding: 18px 44px; font-size: var(--uil-font-size-lg); min-height: 56px; border-radius: var(--uil-radius); }
+.bui-xl { padding: 22px 56px; font-size: var(--uil-font-size-xl); min-height: 64px; border-radius: var(--uil-radius-lg); }
+.bui-block { display: flex; width: 100%; justify-content: center; }
+
+/* ============================================================
+   لایه ۹: چک‌باکس‌ها، رادیوها، سوییچ‌ها (کشسان و زیبا)
+   ============================================================ */
+
+.checkbox-uil {
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-2);
+  color: var(--uil-text);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  padding: 4px 0;
+}
+.checkbox-uil:hover { transform: translateX(4px); }
+.checkbox-uil input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: var(--uil-radius-sm);
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  position: relative;
+  flex-shrink: 0;
+}
+.checkbox-uil input[type="checkbox"]:checked {
+  background: var(--uil-primary);
+  border-color: var(--uil-primary);
+  transform: scale(1.08) rotate(-4deg);
+}
+.checkbox-uil input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  animation: elasticIn 0.3s var(--uil-transition-elastic) forwards;
+}
+.checkbox-uil input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 4px rgba(108,99,255,0.12);
+}
+.checkbox-uil-success input[type="checkbox"]:checked { background: var(--uil-success); border-color: var(--uil-success); }
+.checkbox-uil-danger input[type="checkbox"]:checked { background: var(--uil-danger); border-color: var(--uil-danger); }
+.checkbox-uil-pink input[type="checkbox"]:checked { background: var(--uil-pink); border-color: var(--uil-pink); }
+.checkbox-uil-teal input[type="checkbox"]:checked { background: var(--uil-teal); border-color: var(--uil-teal); }
+
+.radio-uil {
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-2);
+  color: var(--uil-text);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  padding: 4px 0;
+}
+.radio-uil:hover { transform: translateX(4px); }
+.radio-uil input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255,255,255,0.15);
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  position: relative;
+  flex-shrink: 0;
+}
+.radio-uil input[type="radio"]:checked {
+  border-color: var(--uil-primary);
+  transform: scale(1.08);
+}
+.radio-uil input[type="radio"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--uil-primary);
+  animation: elasticIn 0.3s var(--uil-transition-elastic) forwards;
+}
+.radio-uil-success input[type="radio"]:checked { border-color: var(--uil-success); }
+.radio-uil-success input[type="radio"]:checked::after { background: var(--uil-success); }
+.radio-uil-danger input[type="radio"]:checked { border-color: var(--uil-danger); }
+.radio-uil-danger input[type="radio"]:checked::after { background: var(--uil-danger); }
+
+.switch-uil {
+  position: relative;
+  display: inline-block;
+  width: 52px;
+  height: 28px;
+  cursor: pointer;
+}
+.switch-uil input { opacity: 0; width: 0; height: 0; }
+.switch-uil .slider {
+  position: absolute;
+  inset: 0;
+  background: rgba(255,255,255,0.06);
+  border-radius: var(--uil-radius-full);
+  transition: all var(--uil-transition-elastic);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.04);
+}
+.switch-uil .slider::before {
+  content: '';
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  left: 4px;
+  bottom: 4px;
+  background: #fff;
+  border-radius: 50%;
+  transition: all var(--uil-transition-elastic);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+.switch-uil input:checked + .slider { background: var(--uil-primary); }
+.switch-uil input:checked + .slider::before { transform: translateX(24px); }
+.switch-uil:hover .slider { box-shadow: 0 0 0 4px rgba(108,99,255,0.06); }
+.switch-uil-success input:checked + .slider { background: var(--uil-success); }
+.switch-uil-danger input:checked + .slider { background: var(--uil-danger); }
+.switch-uil-pink input:checked + .slider { background: var(--uil-pink); }
+
+/* ============================================================
+   لایه ۱۰: لیست‌های فوق‌زیبا و کشسان با آیکون
+   ============================================================ */
+
+.list-uil {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.list-uil li {
+  padding: 12px 16px;
+  border-radius: var(--uil-radius-sm);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.03);
+  color: var(--uil-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all var(--uil-transition-elastic);
+  margin-bottom: var(--uil-space-2);
+  cursor: default;
+}
+.list-uil li:hover {
+  background: rgba(255,255,255,0.06);
+  transform: translateX(8px) scale(1.02);
+  border-color: rgba(255,255,255,0.06);
+  color: var(--uil-text);
+  box-shadow: var(--uil-shadow-sm);
+}
+.list-uil li .list-icon {
+  flex-shrink: 0;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(108,99,255,0.08);
+  color: var(--uil-primary);
+  transition: all var(--uil-transition-elastic);
+}
+.list-uil li:hover .list-icon {
+  transform: scale(1.1) rotate(-4deg);
+  background: rgba(108,99,255,0.15);
+}
+.list-uil li .list-content { flex: 1; }
+.list-uil li .list-content .list-title {
+  font-weight: 600;
+  color: var(--uil-text);
+  display: block;
+}
+.list-uil li .list-content .list-desc {
+  font-size: var(--uil-font-size-sm);
+  color: var(--uil-text-muted);
+}
+.list-uil li .list-action {
+  flex-shrink: 0;
+}
+.list-uil-primary li .list-icon { background: rgba(108,99,255,0.08); color: var(--uil-primary); }
+.list-uil-success li .list-icon { background: rgba(40,167,69,0.08); color: var(--uil-success); }
+.list-uil-danger li .list-icon { background: rgba(220,53,69,0.08); color: var(--uil-danger); }
+.list-uil-pink li .list-icon { background: rgba(232,62,140,0.08); color: var(--uil-pink); }
+.list-uil-teal li .list-icon { background: rgba(32,201,151,0.08); color: var(--uil-teal); }
+.list-uil-numbered { counter-reset: item; }
+.list-uil-numbered li { counter-increment: item; }
+.list-uil-numbered li .list-icon::before { content: counter(item); font-weight: 700; color: var(--uil-primary); }
+
+/* ============================================================
+   لایه ۱۱: کانتینر وبلاگ — حرفه‌ای و شیشه‌ای
+   ============================================================ */
+
+.blog-card {
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+}
+.blog-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--uil-shadow-lg);
+  border-color: rgba(255,255,255,0.08);
+}
+.blog-card .blog-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 3.5rem;
+  color: #fff;
+  position: relative;
+}
+.blog-card .blog-image .blog-badge {
+  position: absolute;
+  top: var(--uil-space-3);
+  left: var(--uil-space-3);
+  padding: 4px 14px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: rgba(0,0,0,0.30);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.10);
+  color: #fff;
+}
+.blog-card .blog-body {
+  padding: var(--uil-space-5);
+}
+.blog-card .blog-body .blog-title {
+  font-size: var(--uil-font-size-xl);
+  font-weight: 700;
+  color: var(--uil-text);
+  margin-bottom: var(--uil-space-2);
+  transition: all var(--uil-transition-elastic);
+}
+.blog-card .blog-body .blog-title:hover { color: var(--uil-primary); }
+.blog-card .blog-body .blog-excerpt {
+  color: var(--uil-text-muted);
+  font-size: var(--uil-font-size-sm);
+  margin-bottom: var(--uil-space-4);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.blog-card .blog-body .blog-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--uil-space-3);
+  border-top: 1px solid var(--uil-border-card);
+  font-size: var(--uil-font-size-sm);
+  color: var(--uil-text-muted);
+}
+.blog-card .blog-body .blog-meta .blog-author {
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-2);
+}
+.blog-card .blog-body .blog-meta .blog-author .avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.8rem;
+}
+.blog-card-primary .blog-image { background: linear-gradient(135deg, var(--uil-primary), var(--uil-indigo)); }
+.blog-card-success .blog-image { background: linear-gradient(135deg, var(--uil-success), var(--uil-emerald)); }
+.blog-card-danger .blog-image { background: linear-gradient(135deg, var(--uil-danger), var(--uil-rose)); }
+.blog-card-pink .blog-image { background: linear-gradient(135deg, var(--uil-pink), var(--uil-rose)); }
+.blog-card-teal .blog-image { background: linear-gradient(135deg, var(--uil-teal), var(--uil-info)); }
+.blog-card-warning .blog-image { background: linear-gradient(135deg, var(--uil-warning), var(--uil-amber)); }
+
+/* ============================================================
+   لایه ۱۲: کانتینر محصول — حرفه‌ای و شیشه‌ای
+   ============================================================ */
+
+.product-card {
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-lg);
+  padding: var(--uil-space-4);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.product-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: var(--uil-shadow-lg);
+  border-color: rgba(255,255,255,0.08);
+}
+.product-card .product-image {
+  width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: var(--uil-radius);
+  background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #fff;
+  margin-bottom: var(--uil-space-4);
+  transition: all var(--uil-transition-elastic);
+}
+.product-card:hover .product-image {
+  transform: scale(1.02);
+  box-shadow: var(--uil-shadow);
+}
+.product-card .product-badge {
+  position: absolute;
+  top: var(--uil-space-3);
+  right: var(--uil-space-3);
+  padding: 4px 14px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--uil-danger);
+  color: #fff;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.10);
+}
+.product-card .product-badge-sale { background: var(--uil-danger); }
+.product-card .product-badge-new { background: var(--uil-success); }
+.product-card .product-badge-hot { background: var(--uil-warning); color: #1a1a2e; }
+.product-card .product-title {
+  font-size: var(--uil-font-size-lg);
+  font-weight: 700;
+  color: var(--uil-text);
+  margin-bottom: var(--uil-space-1);
+}
+.product-card .product-price {
+  font-size: var(--uil-font-size-xl);
+  font-weight: 700;
+  color: var(--uil-primary);
+  margin-bottom: var(--uil-space-3);
+}
+.product-card .product-price old {
+  font-size: var(--uil-font-size-sm);
+  text-decoration: line-through;
+  color: var(--uil-text-muted);
+  margin-right: var(--uil-space-2);
+}
+.product-card .product-rating {
+  display: flex;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: var(--uil-space-3);
+  color: #ffc107;
+  font-size: 0.9rem;
+}
+.product-card .product-rating .star-empty { color: rgba(255,255,255,0.10); }
+.product-card .product-actions {
+  display: flex;
+  gap: var(--uil-space-2);
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.product-card .product-actions .bui { flex: 1; min-width: 80px; }
+
+/* ============================================================
+   لایه ۱۳: مودال (فقط ظاهر، آماده برای JS)
+   ============================================================ */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.50);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: var(--uil-space-5);
+  animation: modalBackdrop 0.3s ease forwards;
+}
+.modal-overlay.active {
+  display: flex;
+}
+.modal-box {
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-xl);
+  padding: var(--uil-space-7) var(--uil-space-6);
+  box-shadow: var(--uil-shadow-xl);
+  position: relative;
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-overlay.active .modal-box {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.modal-box .modal-close {
+  position: absolute;
+  top: var(--uil-space-4);
+  right: var(--uil-space-5);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.04);
+  border: none;
+  color: var(--uil-text-muted);
+  font-size: var(--uil-font-size-2xl);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  line-height: 1;
+}
+.modal-box .modal-close:hover {
+  color: var(--uil-text);
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(255,255,255,0.08);
+}
+.modal-box.modal-primary { border-top: 4px solid var(--uil-primary); }
+.modal-box.modal-success { border-top: 4px solid var(--uil-success); }
+.modal-box.modal-danger { border-top: 4px solid var(--uil-danger); }
+.modal-box.modal-pink { border-top: 4px solid var(--uil-pink); }
+.modal-box.modal-teal { border-top: 4px solid var(--uil-teal); }
+.modal-box.modal-lg { max-width: 720px; }
+.modal-box.modal-sm { max-width: 380px; }
+.modal-box.modal-full { max-width: 95vw; max-height: 95vh; }
+
+/* ============================================================
+   لایه ۱۴: فرم‌ها و تکست‌باکس‌های فوق‌زیبا
+   ============================================================ */
+
+.input, .select, .textarea {
+  width: 100%;
+  padding: 14px 18px;
+  font-size: var(--uil-font-size-base);
+  font-family: var(--uil-font);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--uil-radius-sm);
+  color: var(--uil-text);
+  transition: all var(--uil-transition-elastic);
+  outline: none;
+  box-shadow: inset 0 2px 12px rgba(0,0,0,0.02), var(--uil-shadow-xs);
+}
+.input:focus, .select:focus, .textarea:focus {
+  border-color: var(--uil-primary);
+  box-shadow: 0 0 0 4px rgba(108,99,255,0.06), inset 0 2px 12px rgba(0,0,0,0.02), var(--uil-shadow-sm);
+  transform: scale(1.01);
+}
+.input::placeholder, .textarea::placeholder {
+  color: var(--uil-text-muted);
+  opacity: 0.4;
+}
+.input-sm { padding: 10px 14px; font-size: var(--uil-font-size-sm); }
+.input-lg { padding: 18px 24px; font-size: var(--uil-font-size-lg); border-radius: var(--uil-radius); }
+.input-rounded { border-radius: var(--uil-radius-full); }
+.input-glass {
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-glass-border);
+}
+.input-success:focus { border-color: var(--uil-success); box-shadow: 0 0 0 4px rgba(40,167,69,0.06); }
+.input-danger:focus { border-color: var(--uil-danger); box-shadow: 0 0 0 4px rgba(220,53,69,0.06); }
+.input-pink:focus { border-color: var(--uil-pink); box-shadow: 0 0 0 4px rgba(232,62,140,0.06); }
+.input-teal:focus { border-color: var(--uil-teal); box-shadow: 0 0 0 4px rgba(32,201,151,0.06); }
+.textarea { min-height: 120px; resize: vertical; }
+.select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='currentColor' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 16px center;
+  cursor: pointer;
+}
+.select option { background: #1a1a2e; color: #fff; }
+.label {
+  display: block;
+  font-size: var(--uil-font-size-sm);
+  font-weight: 600;
+  color: var(--uil-text);
+  margin-bottom: var(--uil-space-1);
+}
+.label-muted { color: var(--uil-text-muted); font-weight: 400; }
+.help-text {
+  font-size: var(--uil-font-size-sm);
+  color: var(--uil-text-muted);
+  margin-top: var(--uil-space-1);
+}
+.field-group { margin-bottom: var(--uil-space-5); }
+.field-group .input { margin-bottom: var(--uil-space-1); }
+
+/* ============================================================
+   لایه ۱۵: کانتینرهای متنوع (۵۰+ نوع)
+   ============================================================ */
+
+.cont-1, .cont-2, .cont-3, .cont-4, .cont-5,
+.cont-6, .cont-7, .cont-8, .cont-9, .cont-10,
+.cont-11, .cont-12, .cont-13, .cont-14, .cont-15,
+.cont-16, .cont-17, .cont-18, .cont-19, .cont-20 {
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-lg);
+  padding: var(--uil-space-5) var(--uil-space-5);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+}
+.cont-1:hover, .cont-2:hover, .cont-3:hover,
+.cont-4:hover, .cont-5:hover, .cont-6:hover,
+.cont-7:hover, .cont-8:hover, .cont-9:hover,
+.cont-10:hover, .cont-11:hover, .cont-12:hover,
+.cont-13:hover, .cont-14:hover, .cont-15:hover,
+.cont-16:hover, .cont-17:hover, .cont-18:hover,
+.cont-19:hover, .cont-20:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--uil-shadow-lg);
+}
+
+.cont-1 { display: flex; flex-wrap: wrap; gap: var(--uil-space-4); align-items: center; }
+.cont-1 .cont-img { flex: 0 0 100px; height: 100px; border-radius: var(--uil-radius); background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #fff; }
+.cont-1 .cont-text { flex: 1; min-width: 150px; }
+.cont-1 .cont-badge { display: inline-block; padding: 2px 12px; border-radius: var(--uil-radius-full); font-size: var(--uil-font-size-xs); font-weight: 700; text-transform: uppercase; background: rgba(108,99,255,0.10); color: var(--uil-primary); margin-bottom: var(--uil-space-1); }
+.cont-2 { flex-direction: row-reverse; }
+.cont-3 { display: flex; flex-direction: column; gap: var(--uil-space-3); }
+.cont-3 .cont-img { width: 100%; height: 120px; border-radius: var(--uil-radius); background: linear-gradient(135deg, var(--uil-teal), var(--uil-info)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #fff; }
+.cont-4 { display: flex; flex-direction: column; gap: var(--uil-space-3); }
+.cont-4 .cont-img { width: 100%; height: 120px; border-radius: var(--uil-radius); background: linear-gradient(135deg, var(--uil-orange), var(--uil-warning)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #1a1a2e; order: 3; }
+.cont-4 .cont-text { order: 1; }
+.cont-4 .cont-buttons { order: 2; display: flex; gap: var(--uil-space-2); flex-wrap: wrap; }
+.cont-5 { text-align: center; }
+.cont-5 .cont-badge { display: inline-block; padding: 2px 12px; border-radius: var(--uil-radius-full); font-size: var(--uil-font-size-xs); font-weight: 700; text-transform: uppercase; background: rgba(108,99,255,0.10); color: var(--uil-primary); margin-bottom: var(--uil-space-1); }
+.cont-6 { display: flex; flex-wrap: wrap; gap: var(--uil-space-4); align-items: center; }
+.cont-6 .cont-img { flex: 0 0 70px; height: 70px; border-radius: 50%; background: linear-gradient(135deg, var(--uil-purple), var(--uil-primary)); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; }
+.cont-6 .cont-text { flex: 1; min-width: 120px; }
+.cont-7 { padding: 0; overflow: hidden; }
+.cont-7 .cont-header { padding: var(--uil-space-4) var(--uil-space-5); border-bottom: 1px solid var(--uil-border-card); font-weight: 700; color: var(--uil-text); background: rgba(255,255,255,0.02); }
+.cont-7 .cont-body { padding: var(--uil-space-5); }
+.cont-7 .cont-footer { padding: var(--uil-space-3) var(--uil-space-5); border-top: 1px solid var(--uil-border-card); display: flex; gap: var(--uil-space-2); flex-wrap: wrap; background: rgba(255,255,255,0.01); }
+.cont-8 { display: flex; flex-direction: column; align-items: center; text-align: center; gap: var(--uil-space-3); }
+.cont-8 .cont-icon { font-size: 4rem; }
+.cont-9 .cont-list { list-style: none; padding: 0; margin: var(--uil-space-3) 0 0; }
+.cont-9 .cont-list li { padding: 10px 14px; border-radius: var(--uil-radius-sm); background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); color: var(--uil-text-muted); display: flex; align-items: center; gap: 12px; transition: all var(--uil-transition-elastic); margin-bottom: var(--uil-space-1); }
+.cont-9 .cont-list li:hover { background: rgba(255,255,255,0.06); transform: translateX(6px); color: var(--uil-text); }
+.cont-9 .cont-list li::before { content: '✦'; color: var(--uil-primary); font-size: 0.9rem; }
+.cont-10 .cont-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(80px, 1fr)); gap: var(--uil-space-2); margin-top: var(--uil-space-3); }
+.cont-10 .cont-grid-item { background: rgba(255,255,255,0.03); border-radius: var(--uil-radius-sm); padding: 14px 8px; text-align: center; color: var(--uil-text-muted); font-size: var(--uil-font-size-sm); border: 1px solid rgba(255,255,255,0.03); transition: all var(--uil-transition-elastic); cursor: default; }
+.cont-10 .cont-grid-item:hover { background: rgba(255,255,255,0.08); transform: scale(1.08); color: var(--uil-text); }
+.cont-11 { display: grid; grid-template-columns: 1fr 1fr; gap: var(--uil-space-4); align-items: center; }
+@media (max-width: 700px) { .cont-11 { grid-template-columns: 1fr; } }
+.cont-11 .cont-img { height: 120px; border-radius: var(--uil-radius); background: linear-gradient(135deg, var(--uil-emerald), var(--uil-primary)); display: flex; align-items: center; justify-content: center; font-size: 2.5rem; color: #fff; }
+.cont-12 { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--uil-space-3); }
+@media (max-width: 700px) { .cont-12 { grid-template-columns: 1fr; } }
+.cont-12 .cont-item { background: rgba(255,255,255,0.02); border-radius: var(--uil-radius-sm); padding: var(--uil-space-4); text-align: center; transition: all var(--uil-transition-elastic); }
+.cont-12 .cont-item:hover { background: rgba(255,255,255,0.06); transform: translateY(-4px) scale(1.02); }
+.cont-13 { position: relative; overflow: hidden; min-height: 160px; display: flex; align-items: center; padding: var(--uil-space-6) var(--uil-space-5); }
+.cont-13::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(108,99,255,0.08), rgba(232,62,140,0.04)); border-radius: var(--uil-radius-lg); }
+.cont-13 .cont-content { position: relative; z-index: 1; }
+.cont-14 { display: flex; flex-wrap: wrap; gap: var(--uil-space-3); align-items: center; justify-content: space-between; }
+.cont-14 .cont-badge { padding: 2px 12px; border-radius: var(--uil-radius-full); font-size: var(--uil-font-size-xs); font-weight: 700; text-transform: uppercase; background: rgba(255,193,7,0.10); color: var(--uil-warning); }
+.cont-15 { text-align: center; }
+.cont-15 .cont-price { font-size: 3rem; font-weight: 800; color: var(--uil-text); }
+.cont-15 .cont-price small { font-size: var(--uil-font-size-base); font-weight: 400; color: var(--uil-text-muted); }
+.cont-16 .cont-progress { height: 8px; border-radius: 8px; background: rgba(255,255,255,0.04); margin: var(--uil-space-2) 0; overflow: hidden; }
+.cont-16 .cont-progress-bar { height: 100%; border-radius: 8px; background: linear-gradient(90deg, var(--uil-primary), var(--uil-pink)); width: 0%; transition: width 1s ease; }
+.cont-17 .cont-timeline { display: flex; flex-direction: column; gap: var(--uil-space-3); margin-top: var(--uil-space-3); }
+.cont-17 .cont-timeline-item { display: flex; gap: var(--uil-space-3); align-items: flex-start; }
+.cont-17 .cont-timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--uil-primary); flex-shrink: 0; margin-top: 4px; transition: all var(--uil-transition-elastic); }
+.cont-17 .cont-timeline-item:hover .cont-timeline-dot { transform: scale(1.3); }
+.cont-17 .cont-timeline-line { flex: 1; border-left: 2px solid rgba(255,255,255,0.04); padding-left: var(--uil-space-4); }
+.cont-18 .cont-stars { display: flex; gap: 4px; font-size: 2rem; margin: var(--uil-space-2) 0; }
+.cont-18 .cont-stars .star { color: rgba(255,255,255,0.10); transition: all var(--uil-transition-elastic); border-radius: var(--uil-radius-sm); padding: 2px 4px; display: inline-block; }
+.cont-18 .cont-stars .star.active { color: #ffc107; }
+.cont-18 .cont-stars .star.half { background: linear-gradient(90deg, #ffc107 50%, rgba(255,255,255,0.10) 50%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.cont-18 .cont-stars .star:hover { transform: scale(1.2) rotate(-5deg); }
+.cont-19 .cont-tags { display: flex; flex-wrap: wrap; gap: var(--uil-space-2); margin-top: var(--uil-space-2); }
+.cont-19 .cont-tag { padding: 4px 16px; border-radius: var(--uil-radius-full); background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.04); font-size: var(--uil-font-size-sm); color: var(--uil-text-muted); transition: all var(--uil-transition-elastic); cursor: default; }
+.cont-19 .cont-tag:hover { background: rgba(255,255,255,0.08); transform: translateY(-3px) scale(1.04); color: var(--uil-text); box-shadow: var(--uil-shadow-sm); }
+.cont-19 .cont-tag-primary { border-color: rgba(108,99,255,0.15); color: var(--uil-primary); }
+.cont-19 .cont-tag-success { border-color: rgba(40,167,69,0.15); color: var(--uil-success); }
+.cont-19 .cont-tag-danger { border-color: rgba(220,53,69,0.15); color: var(--uil-danger); }
+.cont-19 .cont-tag-pink { border-color: rgba(232,62,140,0.15); color: var(--uil-pink); }
+.cont-19 .cont-tag-teal { border-color: rgba(32,201,151,0.15); color: var(--uil-teal); }
+.cont-20 .cont-counter { display: flex; gap: var(--uil-space-5); justify-content: center; margin-top: var(--uil-space-3); flex-wrap: wrap; }
+.cont-20 .cont-counter-item { text-align: center; }
+.cont-20 .cont-counter-num { font-size: 2.2rem; font-weight: 800; color: var(--uil-text); }
+.cont-20 .cont-counter-label { font-size: var(--uil-font-size-sm); color: var(--uil-text-muted); }
+
+/* ============================================================
+   لایه ۱۶: کانتینر لاگین نوع ۱ و ۲
+   ============================================================ */
+
+.login-container {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: var(--uil-space-7) var(--uil-space-6);
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-xl);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+}
+.login-container:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--uil-shadow-lg);
+}
+.login-container .login-title { font-size: var(--uil-font-size-2xl); font-weight: 700; margin-bottom: var(--uil-space-1); color: var(--uil-text); }
+.login-container .login-subtitle { color: var(--uil-text-muted); font-size: var(--uil-font-size-sm); margin-bottom: var(--uil-space-5); }
+.login-container .login-field { margin-bottom: var(--uil-space-4); }
+.login-container .login-btn { width: 100%; justify-content: center; margin-top: var(--uil-space-2); }
+.login-container .login-links { display: flex; justify-content: space-between; margin-top: var(--uil-space-4); font-size: var(--uil-font-size-sm); }
+.login-container .login-links a { color: var(--uil-primary); text-decoration: none; cursor: pointer; transition: all var(--uil-transition-elastic); }
+.login-container .login-links a:hover { color: var(--uil-pink); transform: translateX(4px); }
+.login-container .login-divider {
+  display: flex; align-items: center; gap: var(--uil-space-4);
+  margin: var(--uil-space-4) 0; color: var(--uil-text-muted); font-size: var(--uil-font-size-sm);
+}
+.login-container .login-divider::before,
+.login-container .login-divider::after {
+  content: ''; flex: 1; height: 1px; background: rgba(255,255,255,0.06);
+}
+.login-container .login-social { display: flex; gap: var(--uil-space-2); justify-content: center; flex-wrap: wrap; }
+.login-container .login-social .social-btn {
+  padding: 10px 20px; border-radius: var(--uil-radius-sm);
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.04);
+  color: var(--uil-text); cursor: pointer; transition: all var(--uil-transition-elastic);
+}
+.login-container .login-social .social-btn:hover {
+  background: rgba(255,255,255,0.08); transform: translateY(-3px) scale(1.04);
+}
+
+/* لاگین نوع ۲ با آواتار نصفه */
+.login-avatar {
+  max-width: 420px;
+  margin: 0 auto;
+  padding: var(--uil-space-7) var(--uil-space-6) var(--uil-space-6);
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-xl);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+  position: relative;
+  padding-top: calc(var(--uil-space-7) + 50px);
+}
+.login-avatar:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--uil-shadow-lg);
+}
+.login-avatar .avatar-circle {
+  position: absolute;
+  top: -40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #fff;
+  box-shadow: var(--uil-shadow-lg);
+  border: 4px solid var(--uil-bg-card);
+}
+.login-avatar .login-title { font-size: var(--uil-font-size-xl); font-weight: 700; text-align: center; color: var(--uil-text); }
+.login-avatar .login-subtitle { text-align: center; color: var(--uil-text-muted); font-size: var(--uil-font-size-sm); margin-bottom: var(--uil-space-5); }
+.login-avatar .login-field { margin-bottom: var(--uil-space-4); }
+.login-avatar .login-btn { width: 100%; justify-content: center; margin-top: var(--uil-space-2); }
+
+/* ============================================================
+   لایه ۱۷: هیرو کانتینر
+   ============================================================ */
+
+.hero-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--uil-space-6);
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-xl);
+  padding: var(--uil-space-7) var(--uil-space-6);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+}
+.hero-container:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--uil-shadow-lg);
+}
+.hero-container .hero-text { flex: 1; min-width: 220px; }
+.hero-container .hero-image { flex: 0 0 240px; height: 200px; border-radius: var(--uil-radius-lg); background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink)); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #fff; box-shadow: var(--uil-shadow); }
+@media (max-width: 768px) {
+  .hero-container { flex-direction: column; text-align: center; padding: var(--uil-space-5) var(--uil-space-4); }
+  .hero-container .hero-image { flex: 0 0 160px; width: 100%; height: 160px; order: -1; }
+}
+
+/* ============================================================
+   لایه ۱۸: کارت‌های قیمت
+   ============================================================ */
+
+.card-pricing {
+  text-align: center;
+  padding: var(--uil-space-7) var(--uil-space-6);
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-lg);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.card-pricing:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: var(--uil-shadow-lg);
+}
+.card-pricing .price-badge {
+  position: absolute;
+  top: var(--uil-space-4);
+  right: var(--uil-space-4);
+  padding: 4px 16px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--uil-primary);
+  color: #fff;
+}
+.card-pricing .price-amount {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--uil-text);
+  margin: var(--uil-space-4) 0;
+}
+.card-pricing .price-amount small {
+  font-size: var(--uil-font-size-base);
+  font-weight: 400;
+  color: var(--uil-text-muted);
+}
+.card-pricing .price-features {
+  list-style: none;
+  padding: 0;
+  margin: var(--uil-space-5) 0;
+}
+.card-pricing .price-features li {
+  padding: var(--uil-space-2) 0;
+  color: var(--uil-text-muted);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.card-pricing .price-features li::before { content: '✓ '; color: var(--uil-primary); font-weight: 700; }
+.card-pricing-premium {
+  background: linear-gradient(145deg, rgba(108,99,255,0.10), rgba(13,202,240,0.04));
+  border: 2px solid rgba(108,99,255,0.15);
+  box-shadow: 0 0 60px rgba(108,99,255,0.04);
+}
+.card-pricing-premium:hover {
+  box-shadow: 0 0 80px rgba(108,99,255,0.08);
+}
+
+/* ============================================================
+   لایه ۱۹: بج و پیجینیشن
+   ============================================================ */
+
+.badge {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.04);
+  color: var(--uil-text-muted);
+  transition: all var(--uil-transition-elastic);
+}
+.badge:hover { transform: scale(1.05); }
+.badge-primary { background: rgba(108,99,255,0.10); border-color: rgba(108,99,255,0.10); color: var(--uil-primary); }
+.badge-success { background: rgba(40,167,69,0.10); border-color: rgba(40,167,69,0.10); color: var(--uil-success); }
+.badge-danger { background: rgba(220,53,69,0.10); border-color: rgba(220,53,69,0.10); color: var(--uil-danger); }
+.badge-warning { background: rgba(255,193,7,0.10); border-color: rgba(255,193,7,0.10); color: var(--uil-warning); }
+.badge-pink { background: rgba(232,62,140,0.10); border-color: rgba(232,62,140,0.10); color: var(--uil-pink); }
+.badge-teal { background: rgba(32,201,151,0.10); border-color: rgba(32,201,151,0.10); color: var(--uil-teal); }
+.badge-sm { padding: 2px 10px; font-size: 0.6rem; }
+.badge-lg { padding: 6px 20px; font-size: var(--uil-font-size-sm); }
+
+.pagination {
+  display: flex;
+  gap: var(--uil-space-1);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.pagination .page-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 0 12px;
+  border-radius: var(--uil-radius-sm);
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-glass-border);
+  color: var(--uil-text-muted);
+  text-decoration: none;
+  transition: all var(--uil-transition-elastic);
+  font-size: var(--uil-font-size-sm);
+}
+.pagination .page-link:hover {
+  color: var(--uil-text);
+  background: rgba(255,255,255,0.06);
+  transform: translateY(-2px);
+  box-shadow: var(--uil-shadow-sm);
+}
+.pagination .page-link.active {
+  background: var(--uil-primary);
+  border-color: var(--uil-primary);
+  color: #fff;
+  box-shadow: 0 4px 16px rgba(108,99,255,0.20);
+}
+.pagination .page-link.disabled { opacity: 0.3; pointer-events: none; }
+
+/* ============================================================
+   لایه ۲۰: اسپینر با ۷۸%
+   ============================================================ */
+
+.spinner {
+  display: inline-block;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid rgba(255,255,255,0.04);
+  border-top: 4px solid var(--uil-primary);
+  animation: spinElastic 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  position: relative;
+}
+.spinner::before {
+  content: '78%';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: var(--uil-font-size-sm);
+  font-weight: 700;
+  color: var(--uil-primary);
+}
+.spinner-sm { width: 32px; height: 32px; border-width: 3px; }
+.spinner-sm::before { font-size: 0.6rem; }
+.spinner-lg { width: 64px; height: 64px; border-width: 5px; }
+.spinner-lg::before { font-size: var(--uil-font-size-base); }
+.spinner-primary { border-top-color: var(--uil-primary); }
+.spinner-primary::before { color: var(--uil-primary); }
+.spinner-success { border-top-color: var(--uil-success); }
+.spinner-success::before { color: var(--uil-success); }
+.spinner-danger { border-top-color: var(--uil-danger); }
+.spinner-danger::before { color: var(--uil-danger); }
+.spinner-pink { border-top-color: var(--uil-pink); }
+.spinner-pink::before { color: var(--uil-pink); }
+.spinner-teal { border-top-color: var(--uil-teal); }
+.spinner-teal::before { color: var(--uil-teal); }
+
+/* ============================================================
+   لایه ۲۱: جدول‌ها
+   ============================================================ */
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: var(--uil-radius);
+  overflow: hidden;
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  box-shadow: var(--uil-shadow-sm);
+}
+.table th, .table td {
+  padding: 12px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--uil-border-card);
+  color: var(--uil-text);
+}
+.table th {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--uil-font-size-sm);
+  letter-spacing: 0.5px;
+  color: var(--uil-text-muted);
+}
+.table tbody tr { transition: all var(--uil-transition-elastic); }
+.table tbody tr:hover { background: rgba(255,255,255,0.02); transform: scale(1.01); }
+.table-striped tbody tr:nth-child(odd) { background: rgba(255,255,255,0.02); }
+.table-bordered th, .table-bordered td { border: 1px solid var(--uil-border-card); }
+.table-hover tbody tr:hover { background: rgba(108,99,255,0.04); transform: scale(1.01); }
+.table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* ============================================================
+   لایه ۲۲: گریدهای ۲, ۴, ۵, ۲۵, ۵۰ ستونی
+   ============================================================ */
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 var(--uil-space-5); }
+.container-fluid { max-width: 100%; padding: 0 var(--uil-space-5); }
+.row { display: flex; flex-wrap: wrap; margin: 0 -12px; }
+[class^="col-"] { padding: 0 12px; flex: 0 0 auto; width: 100%; }
+.col-1 { width: 8.333%; } .col-2 { width: 16.666%; } .col-3 { width: 25%; }
+.col-4 { width: 33.333%; } .col-5 { width: 41.666%; } .col-6 { width: 50%; }
+.col-7 { width: 58.333%; } .col-8 { width: 66.666%; } .col-9 { width: 75%; }
+.col-10 { width: 83.333%; } .col-11 { width: 91.666%; } .col-12 { width: 100%; }
+.col-2grid { width: 50%; }
+.col-4grid { width: 25%; }
+.col-5grid { width: 20%; }
+.col-25grid { width: 4%; }
+.col-50grid { width: 2%; }
+
+@media (max-width: 992px) {
+  .col-md-1 { width: 8.333%; } .col-md-2 { width: 16.666%; } .col-md-3 { width: 25%; }
+  .col-md-4 { width: 33.333%; } .col-md-5 { width: 41.666%; } .col-md-6 { width: 50%; }
+  .col-md-7 { width: 58.333%; } .col-md-8 { width: 66.666%; } .col-md-9 { width: 75%; }
+  .col-md-10 { width: 83.333%; } .col-md-11 { width: 91.666%; } .col-md-12 { width: 100%; }
+  .col-4grid { width: 33.333%; } .col-5grid { width: 33.333%; }
+  .col-25grid { width: 8.333%; } .col-50grid { width: 4%; }
+}
+@media (max-width: 768px) {
+  .col-sm-1 { width: 8.333%; } .col-sm-2 { width: 16.666%; } .col-sm-3 { width: 25%; }
+  .col-sm-4 { width: 33.333%; } .col-sm-5 { width: 41.666%; } .col-sm-6 { width: 50%; }
+  .col-sm-7 { width: 58.333%; } .col-sm-8 { width: 66.666%; } .col-sm-9 { width: 75%; }
+  .col-sm-10 { width: 83.333%; } .col-sm-11 { width: 91.666%; } .col-sm-12 { width: 100%; }
+  .col-2grid { width: 100%; } .col-4grid { width: 50%; } .col-5grid { width: 50%; }
+  .col-25grid { width: 20%; } .col-50grid { width: 10%; }
+}
+@media (max-width: 576px) {
+  .col-xs-1 { width: 8.333%; } .col-xs-2 { width: 16.666%; } .col-xs-3 { width: 25%; }
+  .col-xs-4 { width: 33.333%; } .col-xs-5 { width: 41.666%; } .col-xs-6 { width: 50%; }
+  .col-xs-7 { width: 58.333%; } .col-xs-8 { width: 66.666%; } .col-xs-9 { width: 75%; }
+  .col-xs-10 { width: 83.333%; } .col-xs-11 { width: 91.666%; } .col-xs-12 { width: 100%; }
+  .col-4grid { width: 100%; } .col-5grid { width: 100%; }
+  .col-25grid { width: 50%; } .col-50grid { width: 25%; }
+}
+
+/* ============================================================
+   لایه ۲۳: یوتیلیتی‌های گسترده
+   ============================================================ */
+
+/* فاصله‌گذاری */
+.m-0 { margin: 0; } .m-1 { margin: var(--uil-space-1); } .m-2 { margin: var(--uil-space-2); }
+.m-3 { margin: var(--uil-space-3); } .m-4 { margin: var(--uil-space-4); } .m-5 { margin: var(--uil-space-5); }
+.m-6 { margin: var(--uil-space-6); } .m-7 { margin: var(--uil-space-7); } .m-8 { margin: var(--uil-space-8); }
+.m-auto { margin: auto; }
+.mt-1 { margin-top: var(--uil-space-1); } .mt-2 { margin-top: var(--uil-space-2); }
+.mt-3 { margin-top: var(--uil-space-3); } .mt-4 { margin-top: var(--uil-space-4); }
+.mt-5 { margin-top: var(--uil-space-5); } .mt-6 { margin-top: var(--uil-space-6); }
+.mb-1 { margin-bottom: var(--uil-space-1); } .mb-2 { margin-bottom: var(--uil-space-2); }
+.mb-3 { margin-bottom: var(--uil-space-3); } .mb-4 { margin-bottom: var(--uil-space-4); }
+.mb-5 { margin-bottom: var(--uil-space-5); } .mb-6 { margin-bottom: var(--uil-space-6); }
+.mx-1 { margin-left: var(--uil-space-1); margin-right: var(--uil-space-1); }
+.my-1 { margin-top: var(--uil-space-1); margin-bottom: var(--uil-space-1); }
+
+.p-0 { padding: 0; } .p-1 { padding: var(--uil-space-1); } .p-2 { padding: var(--uil-space-2); }
+.p-3 { padding: var(--uil-space-3); } .p-4 { padding: var(--uil-space-4); } .p-5 { padding: var(--uil-space-5); }
+.p-6 { padding: var(--uil-space-6); } .p-7 { padding: var(--uil-space-7); } .p-8 { padding: var(--uil-space-8); }
+.pt-1 { padding-top: var(--uil-space-1); } .pt-2 { padding-top: var(--uil-space-2); }
+.pb-1 { padding-bottom: var(--uil-space-1); } .pb-2 { padding-bottom: var(--uil-space-2); }
+.px-1 { padding-left: var(--uil-space-1); padding-right: var(--uil-space-1); }
+.py-1 { padding-top: var(--uil-space-1); padding-bottom: var(--uil-space-1); }
+
+.gap-0 { gap: 0; } .gap-1 { gap: var(--uil-space-1); } .gap-2 { gap: var(--uil-space-2); }
+.gap-3 { gap: var(--uil-space-3); } .gap-4 { gap: var(--uil-space-4); } .gap-5 { gap: var(--uil-space-5); }
+.gap-6 { gap: var(--uil-space-6); } .gap-7 { gap: var(--uil-space-7); }
+
+/* نمایش و چیدمان */
+.d-flex { display: flex; } .d-grid { display: grid; } .d-block { display: block; }
+.d-inline-block { display: inline-block; } .d-inline-flex { display: inline-flex; }
+.d-none { display: none; }
+.flex-wrap { flex-wrap: wrap; } .flex-nowrap { flex-wrap: nowrap; }
+.align-center { align-items: center; } .align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; } .align-stretch { align-items: stretch; }
+.justify-center { justify-content: center; } .justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; } .justify-end { justify-content: flex-end; }
+.flex-col { flex-direction: column; } .flex-row { flex-direction: row; }
+.flex-1 { flex: 1; } .flex-2 { flex: 2; } .flex-3 { flex: 3; }
+
+/* عرض و ارتفاع */
+.w-100 { width: 100%; } .w-75 { width: 75%; } .w-50 { width: 50%; }
+.w-25 { width: 25%; } .w-auto { width: auto; }
+.h-100 { height: 100%; } .h-auto { height: auto; }
+.min-h-100 { min-height: 100vh; }
+
+/* متن */
+.text-center { text-align: center; } .text-left { text-align: left; }
+.text-right { text-align: right; } .text-justify { text-align: justify; }
+.text-nowrap { white-space: nowrap; } .text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.text-uppercase { text-transform: uppercase; } .text-lowercase { text-transform: lowercase; } .text-capitalize { text-transform: capitalize; }
+.text-muted { color: var(--uil-text-muted); }
+.text-primary { color: var(--uil-primary); }
+.text-success { color: var(--uil-success); }
+.text-danger { color: var(--uil-danger); }
+.text-warning { color: var(--uil-warning); }
+.text-pink { color: var(--uil-pink); }
+.text-teal { color: var(--uil-teal); }
+
+/* پس‌زمینه */
+.bg-glass { background: var(--uil-glass-bg); backdrop-filter: blur(var(--uil-glass-blur)); }
+.bg-primary { background: var(--uil-primary); }
+.bg-success { background: var(--uil-success); }
+.bg-danger { background: var(--uil-danger); }
+.bg-warning { background: var(--uil-warning); }
+.bg-pink { background: var(--uil-pink); }
+.bg-teal { background: var(--uil-teal); }
+.bg-transparent { background: transparent; }
+
+/* سایه‌ها */
+.shadow-none { box-shadow: none; }
+.shadow-xs { box-shadow: var(--uil-shadow-xs); }
+.shadow-sm { box-shadow: var(--uil-shadow-sm); }
+.shadow { box-shadow: var(--uil-shadow); }
+.shadow-lg { box-shadow: var(--uil-shadow-lg); }
+.shadow-xl { box-shadow: var(--uil-shadow-xl); }
+.shadow-glow { box-shadow: var(--uil-shadow-glow); }
+.shadow-se { box-shadow: var(--uil-shadow-se); }
+.shadow-se-hover:hover { box-shadow: var(--uil-shadow-se-hover); }
+
+/* گوشه‌ها */
+.rounded-none { border-radius: 0; }
+.rounded-xs { border-radius: var(--uil-radius-xs); }
+.rounded-sm { border-radius: var(--uil-radius-sm); }
+.rounded { border-radius: var(--uil-radius); }
+.rounded-lg { border-radius: var(--uil-radius-lg); }
+.rounded-xl { border-radius: var(--uil-radius-xl); }
+.rounded-full { border-radius: var(--uil-radius-full); }
+
+/* حاشیه */
+.border { border: 1px solid var(--uil-border-card); }
+.border-2 { border: 2px solid var(--uil-border-card); }
+.border-4 { border: 4px solid var(--uil-border-card); }
+.border-primary { border-color: var(--uil-primary); }
+.border-success { border-color: var(--uil-success); }
+.border-danger { border-color: var(--uil-danger); }
+.border-warning { border-color: var(--uil-warning); }
+.border-pink { border-color: var(--uil-pink); }
+.border-teal { border-color: var(--uil-teal); }
+.border-none { border: none; }
+
+/* ============================================================
+   لایه ۲۴: اسکرول نرم
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+::-webkit-scrollbar { width: 8px; height: 8px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.01); border-radius: 8px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.06); border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.12); }
+
+/* ============================================================
+   لایه ۲۵: سازگاری با JS
+   ============================================================ */
+
+[data-uil-glass] {
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-glass-border);
+  border-radius: var(--uil-radius);
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition);
+}
+[data-uil-glass]:hover {
+  box-shadow: var(--uil-shadow-lg);
+  transform: translateY(-4px);
+}
+.uil-hidden { display: none !important; }
+.uil-visible { display: block !important; }
+.uil-opacity-0 { opacity: 0; }
+.uil-opacity-100 { opacity: 1; }
+.uil-transition-opacity { transition: opacity 0.4s ease; }
+
+.alert {
+  padding: var(--uil-space-4) var(--uil-space-5);
+  border-radius: var(--uil-radius);
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-glass-border);
+  color: var(--uil-text);
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-3);
+}
+.alert-primary { border-right: 4px solid var(--uil-primary); }
+.alert-success { border-right: 4px solid var(--uil-success); }
+.alert-danger { border-right: 4px solid var(--uil-danger); }
+.alert-warning { border-right: 4px solid var(--uil-warning); }
+.alert-pink { border-right: 4px solid var(--uil-pink); }
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--uil-space-2);
+  list-style: none;
+  padding: var(--uil-space-3) var(--uil-space-4);
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border-radius: var(--uil-radius-sm);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  color: var(--uil-text-muted);
+  margin-right: var(--uil-space-2);
+}
+.breadcrumb-item a { color: var(--uil-primary); text-decoration: none; }
+.breadcrumb-item.active { color: var(--uil-text-muted); }
+.avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink));
+}
+.avatar-sm { width: 36px; height: 36px; font-size: 0.9rem; }
+.avatar-lg { width: 64px; height: 64px; font-size: 1.6rem; }
+.avatar-xl { width: 96px; height: 96px; font-size: 2.4rem; }
+.avatar-primary { background: var(--uil-primary); }
+.avatar-success { background: var(--uil-success); }
+.avatar-danger { background: var(--uil-danger); }
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.navbar-nav li {
+  display: inline-block;
+}
+
+.navbar-nav .nav-link {
+  display: inline-block;
+  padding: 8px 16px;
+  color: var(--uil-text);
+  text-decoration: none;
+  border-radius: var(--uil-radius-sm);
+  transition: all var(--uil-transition-elastic);
+}
+
+.navbar-nav .nav-link:hover {
+  background: rgba(255, 255, 255, 0.06);
+  transform: translateY(-2px);
+}
+
+.navbar-nav .nav-link.active {
+  color: var(--uil-primary);
+  background: rgba(108, 99, 255, 0.08);
+}
+
+/* ===== واکنش‌گرایی منو برای موبایل ===== */
+@media (max-width: 768px) {
+  .navbar-collapse {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .navbar-nav {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .navbar-nav li {
+    width: 100%;
+  }
+  
+  .navbar-nav .nav-link {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===== استایل هامبورگر (در صورت نیاز) ===== */
+.navbar-toggler {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.navbar-toggler span {
+  display: block;
+  width: 28px;
+  height: 3px;
+  border-radius: 3px;
+  background: var(--uil-text);
+  transition: all var(--uil-transition-elastic);
+}
+
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: flex;
+  }
+  
+  .navbar-collapse {
+    display: none;
+    width: 100%;
+  }
+  
+  .navbar-toggler-check:checked ~ .navbar-collapse {
+    display: flex;
+    animation: elasticSlide 0.5s var(--uil-transition-elastic) forwards;
+  }
+  
+  .navbar-toggler-check:checked ~ .navbar-toggler span:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+  }
+  
+  .navbar-toggler-check:checked ~ .navbar-toggler span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .navbar-toggler-check:checked ~ .navbar-toggler span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+
+/* ============================================================
+   لایه ۲۸: شخصی‌سازی چک‌باکس‌های مرورگر
+   ============================================================ */
+
+/* ===== چک‌باکس پایه ===== */
+.checkbox-custom {
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-2);
+  color: var(--uil-text);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  padding: 4px 0;
+}
+
+.checkbox-custom:hover {
+  transform: translateX(4px);
+}
+
+.checkbox-custom input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 22px;
+  height: 22px;
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--uil-radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  position: relative;
+  flex-shrink: 0;
+}
+
+.checkbox-custom input[type="checkbox"]:checked {
+  background: var(--uil-primary);
+  border-color: var(--uil-primary);
+  transform: scale(1.08) rotate(-4deg);
+}
+
+.checkbox-custom input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+  animation: elasticIn 0.3s var(--uil-transition-elastic) forwards;
+}
+
+.checkbox-custom input[type="checkbox"]:focus {
+  box-shadow: 0 0 0 4px rgba(108, 99, 255, 0.12);
+}
+
+/* ===== رنگ‌های مختلف ===== */
+.checkbox-custom-primary input[type="checkbox"]:checked {
+  background: var(--uil-primary);
+  border-color: var(--uil-primary);
+}
+
+.checkbox-custom-success input[type="checkbox"]:checked {
+  background: var(--uil-success);
+  border-color: var(--uil-success);
+}
+
+.checkbox-custom-danger input[type="checkbox"]:checked {
+  background: var(--uil-danger);
+  border-color: var(--uil-danger);
+}
+
+.checkbox-custom-warning input[type="checkbox"]:checked {
+  background: var(--uil-warning);
+  border-color: var(--uil-warning);
+}
+
+.checkbox-custom-pink input[type="checkbox"]:checked {
+  background: var(--uil-pink);
+  border-color: var(--uil-pink);
+}
+
+.checkbox-custom-teal input[type="checkbox"]:checked {
+  background: var(--uil-teal);
+  border-color: var(--uil-teal);
+}
+
+/* ===== سایزهای مختلف ===== */
+.checkbox-custom-sm input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+}
+
+.checkbox-custom-sm input[type="checkbox"]:checked::after {
+  font-size: 11px;
+}
+
+.checkbox-custom-lg input[type="checkbox"] {
+  width: 28px;
+  height: 28px;
+}
+
+.checkbox-custom-lg input[type="checkbox"]:checked::after {
+  font-size: 18px;
+}
+
+/* ===== چک‌باکس گرد (رادیو مانند) ===== */
+.checkbox-custom-round input[type="checkbox"] {
+  border-radius: 50%;
+}
+
+.checkbox-custom-round input[type="checkbox"]:checked {
+  transform: scale(1.08);
+}
+
+.checkbox-custom-round input[type="checkbox"]:checked::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: translate(-50%, -50%) scale(0);
+  animation: elasticIn 0.3s var(--uil-transition-elastic) forwards;
+}
+}
+.progress {
+  height: 8px;
+  border-radius: var(--uil-radius-full);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  margin-bottom: var(--uil-space-4);
+}
+.progress-bar {
+  height: 100%;
+  border-radius: var(--uil-radius-full);
+  background: linear-gradient(90deg, var(--uil-primary), var(--uil-pink));
+  transition: width 1s ease;
+  width: 0%;
+}
+.progress-bar-primary { background: var(--uil-primary); }
+.progress-bar-success { background: var(--uil-success); }
+.progress-bar-danger { background: var(--uil-danger); }
+.progress-bar-pink { background: var(--uil-pink); }
+.progress-bar-teal { background: var(--uil-teal); }
+.progress-sm { height: 4px; }
+.progress-lg { height: 12px; }
+.spinner-dots {
+  display: inline-flex;
+  gap: var(--uil-space-2);
+}
+.spinner-dots span {
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--uil-primary);
+  animation: dotBounce 1.4s ease-in-out infinite both;
+}
+.spinner-dots span:nth-child(1) { animation-delay: -0.32s; }
+.spinner-dots span:nth-child(2) { animation-delay: -0.16s; }
+.spinner-dots span:nth-child(3) { animation-delay: 0s; }
+
+@keyframes dotBounce {
+  0%, 80%, 100% { transform: scale(0); }
+  40% { transform: scale(1); }
+}
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--uil-space-2);
+  list-style: none;
+  padding: var(--uil-space-3) var(--uil-space-4);
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border-radius: var(--uil-radius-sm);
+  margin-bottom: var(--uil-space-4);
+}
+.breadcrumb-item + .breadcrumb-item::before {
+  content: '/';
+  color: var(--uil-text-muted);
+  margin: 0 var(--uil-space-2);
+}
+.breadcrumb-item a {
+  color: var(--uil-primary);
+  text-decoration: none;
+  transition: all var(--uil-transition-elastic);
+}
+.breadcrumb-item a:hover {
+  color: var(--uil-pink);
+}
+.breadcrumb-item.active {
+  color: var(--uil-text-muted);
+}
+.tabs-custom {
+  display: flex;
+  gap: 4px;
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border-radius: var(--uil-radius);
+  padding: var(--uil-space-2);
+  margin-bottom: var(--uil-space-4);
+}
+.tabs-custom .tab-btn {
+  padding: 10px 24px;
+  border-radius: var(--uil-radius-sm);
+  background: none;
+  border: none;
+  color: var(--uil-text-muted);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  font-family: var(--uil-font);
+  font-size: var(--uil-font-size-sm);
+  font-weight: 500;
+}
+.tabs-custom .tab-btn:hover {
+  color: var(--uil-text);
+  background: rgba(255,255,255,0.04);
+}
+.tabs-custom .tab-btn.active {
+  color: var(--uil-text);
+  background: rgba(108,99,255,0.08);
+  box-shadow: var(--uil-shadow-sm);
+}
+.accordion-custom {
+  display: flex;
+  flex-direction: column;
+  gap: var(--uil-space-2);
+  margin-bottom: var(--uil-space-4);
+}
+.accordion-custom .accordion-item {
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-glass-border);
+  border-radius: var(--uil-radius-sm);
+  overflow: hidden;
+}
+.accordion-custom .accordion-header {
+  padding: 14px 20px;
+  color: var(--uil-text);
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 500;
+}
+.accordion-custom .accordion-header:hover {
+  background: rgba(255,255,255,0.02);
+}
+.accordion-custom .accordion-body {
+  padding: 0 20px 20px;
+  color: var(--uil-text-muted);
+}
+.tooltip-custom {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+.tooltip-custom .tooltip-text {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) scale(0.9);
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-sm);
+  padding: 6px 14px;
+  font-size: var(--uil-font-size-sm);
+  color: var(--uil-text);
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: all var(--uil-transition-elastic);
+  box-shadow: var(--uil-shadow);
+}
+.tooltip-custom:hover .tooltip-text {
+  opacity: 1;
+  transform: translateX(-50%) scale(1);
+}
+.divider {
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-4);
+  color: var(--uil-text-muted);
+  font-size: var(--uil-font-size-sm);
+  margin: var(--uil-space-4) 0;
+}
+.divider::before,
+.divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--uil-border-card);
+}
+.m-0 { margin: 0; }
+.m-1 { margin: 4px; }
+.m-2 { margin: 8px; }
+.m-3 { margin: 12px; }
+.m-4 { margin: 16px; }
+.m-5 { margin: 24px; }
+.m-6 { margin: 32px; }
+.m-7 { margin: 48px; }
+.m-8 { margin: 64px; }
+.m-9 { margin: 96px; }
+.m-10 { margin: 128px; }
+.m-auto { margin: auto; }
+.mt-0 { margin-top: 0; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mt-3 { margin-top: 12px; }
+.mt-4 { margin-top: 16px; }
+.mt-5 { margin-top: 24px; }
+.mt-6 { margin-top: 32px; }
+.mt-7 { margin-top: 48px; }
+.mt-8 { margin-top: 64px; }
+.mt-9 { margin-top: 96px; }
+.mt-10 { margin-top: 128px; }
+.mt-auto { margin-top: auto; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: 4px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-3 { margin-bottom: 12px; }
+.mb-4 { margin-bottom: 16px; }
+.mb-5 { margin-bottom: 24px; }
+.mb-6 { margin-bottom: 32px; }
+.mb-7 { margin-bottom: 48px; }
+.mb-8 { margin-bottom: 64px; }
+.mb-9 { margin-bottom: 96px; }
+.mb-10 { margin-bottom: 128px; }
+.mb-auto { margin-bottom: auto; }
+.ml-0 { margin-left: 0; }
+.ml-1 { margin-left: 4px; }
+.ml-2 { margin-left: 8px; }
+.ml-3 { margin-left: 12px; }
+.ml-4 { margin-left: 16px; }
+.ml-5 { margin-left: 24px; }
+.ml-6 { margin-left: 32px; }
+.ml-7 { margin-left: 48px; }
+.ml-8 { margin-left: 64px; }
+.ml-9 { margin-left: 96px; }
+.ml-10 { margin-left: 128px; }
+.ml-auto { margin-left: auto; }
+.mr-0 { margin-right: 0; }
+.mr-1 { margin-right: 4px; }
+.mr-2 { margin-right: 8px; }
+.mr-3 { margin-right: 12px; }
+.mr-4 { margin-right: 16px; }
+.mr-5 { margin-right: 24px; }
+.mr-6 { margin-right: 32px; }
+.mr-7 { margin-right: 48px; }
+.mr-8 { margin-right: 64px; }
+.mr-9 { margin-right: 96px; }
+.mr-10 { margin-right: 128px; }
+.mr-auto { margin-right: auto; }
+.mx-0 { margin-left: 0; margin-right: 0; }
+.mx-1 { margin-left: 4px; margin-right: 4px; }
+.mx-2 { margin-left: 8px; margin-right: 8px; }
+.mx-3 { margin-left: 12px; margin-right: 12px; }
+.mx-4 { margin-left: 16px; margin-right: 16px; }
+.mx-5 { margin-left: 24px; margin-right: 24px; }
+.mx-6 { margin-left: 32px; margin-right: 32px; }
+.mx-7 { margin-left: 48px; margin-right: 48px; }
+.mx-8 { margin-left: 64px; margin-right: 64px; }
+.mx-9 { margin-left: 96px; margin-right: 96px; }
+.mx-10 { margin-left: 128px; margin-right: 128px; }
+.mx-auto { margin-left: auto; margin-right: auto; }
+.my-0 { margin-top: 0; margin-bottom: 0; }
+.my-1 { margin-top: 4px; margin-bottom: 4px; }
+.my-2 { margin-top: 8px; margin-bottom: 8px; }
+.my-3 { margin-top: 12px; margin-bottom: 12px; }
+.my-4 { margin-top: 16px; margin-bottom: 16px; }
+.my-5 { margin-top: 24px; margin-bottom: 24px; }
+.my-6 { margin-top: 32px; margin-bottom: 32px; }
+.my-7 { margin-top: 48px; margin-bottom: 48px; }
+.my-8 { margin-top: 64px; margin-bottom: 64px; }
+.my-9 { margin-top: 96px; margin-bottom: 96px; }
+.my-10 { margin-top: 128px; margin-bottom: 128px; }
+.my-auto { margin-top: auto; margin-bottom: auto; }
+.p-0 { padding: 0; }
+.p-1 { padding: 4px; }
+.p-2 { padding: 8px; }
+.p-3 { padding: 12px; }
+.p-4 { padding: 16px; }
+.p-5 { padding: 24px; }
+.p-6 { padding: 32px; }
+.p-7 { padding: 48px; }
+.p-8 { padding: 64px; }
+.p-9 { padding: 96px; }
+.p-10 { padding: 128px; }
+.pt-0 { padding-top: 0; }
+.pt-1 { padding-top: 4px; }
+.pt-2 { padding-top: 8px; }
+.pt-3 { padding-top: 12px; }
+.pt-4 { padding-top: 16px; }
+.pt-5 { padding-top: 24px; }
+.pt-6 { padding-top: 32px; }
+.pt-7 { padding-top: 48px; }
+.pt-8 { padding-top: 64px; }
+.pt-9 { padding-top: 96px; }
+.pt-10 { padding-top: 128px; }
+.pb-0 { padding-bottom: 0; }
+.pb-1 { padding-bottom: 4px; }
+.pb-2 { padding-bottom: 8px; }
+.pb-3 { padding-bottom: 12px; }
+.pb-4 { padding-bottom: 16px; }
+.pb-5 { padding-bottom: 24px; }
+.pb-6 { padding-bottom: 32px; }
+.pb-7 { padding-bottom: 48px; }
+.pb-8 { padding-bottom: 64px; }
+.pb-9 { padding-bottom: 96px; }
+.pb-10 { padding-bottom: 128px; }
+.pl-0 { padding-left: 0; }
+.pl-1 { padding-left: 4px; }
+.pl-2 { padding-left: 8px; }
+.pl-3 { padding-left: 12px; }
+.pl-4 { padding-left: 16px; }
+.pl-5 { padding-left: 24px; }
+.pl-6 { padding-left: 32px; }
+.pl-7 { padding-left: 48px; }
+.pl-8 { padding-left: 64px; }
+.pl-9 { padding-left: 96px; }
+.pl-10 { padding-left: 128px; }
+.pr-0 { padding-right: 0; }
+.pr-1 { padding-right: 4px; }
+.pr-2 { padding-right: 8px; }
+.pr-3 { padding-right: 12px; }
+.pr-4 { padding-right: 16px; }
+.pr-5 { padding-right: 24px; }
+.pr-6 { padding-right: 32px; }
+.pr-7 { padding-right: 48px; }
+.pr-8 { padding-right: 64px; }
+.pr-9 { padding-right: 96px; }
+.pr-10 { padding-right: 128px; }
+.px-0 { padding-left: 0; padding-right: 0; }
+.px-1 { padding-left: 4px; padding-right: 4px; }
+.px-2 { padding-left: 8px; padding-right: 8px; }
+.px-3 { padding-left: 12px; padding-right: 12px; }
+.px-4 { padding-left: 16px; padding-right: 16px; }
+.px-5 { padding-left: 24px; padding-right: 24px; }
+.px-6 { padding-left: 32px; padding-right: 32px; }
+.px-7 { padding-left: 48px; padding-right: 48px; }
+.px-8 { padding-left: 64px; padding-right: 64px; }
+.px-9 { padding-left: 96px; padding-right: 96px; }
+.px-10 { padding-left: 128px; padding-right: 128px; }
+.py-0 { padding-top: 0; padding-bottom: 0; }
+.py-1 { padding-top: 4px; padding-bottom: 4px; }
+.py-2 { padding-top: 8px; padding-bottom: 8px; }
+.py-3 { padding-top: 12px; padding-bottom: 12px; }
+.py-4 { padding-top: 16px; padding-bottom: 16px; }
+.py-5 { padding-top: 24px; padding-bottom: 24px; }
+.py-6 { padding-top: 32px; padding-bottom: 32px; }
+.py-7 { padding-top: 48px; padding-bottom: 48px; }
+.py-8 { padding-top: 64px; padding-bottom: 64px; }
+.py-9 { padding-top: 96px; padding-bottom: 96px; }
+.py-10 { padding-top: 128px; padding-bottom: 128px; }
+.gap-0 { gap: 0; }
+.gap-1 { gap: 4px; }
+.gap-2 { gap: 8px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-5 { gap: 24px; }
+.gap-6 { gap: 32px; }
+.gap-7 { gap: 48px; }
+.gap-8 { gap: 64px; }
+.gap-9 { gap: 96px; }
+.gap-10 { gap: 128px; }
+
+/* Gap در جهت‌های خاص */
+.gap-x-1 { column-gap: 4px; }
+.gap-x-2 { column-gap: 8px; }
+.gap-x-3 { column-gap: 12px; }
+.gap-x-4 { column-gap: 16px; }
+.gap-x-5 { column-gap: 24px; }
+.gap-x-6 { column-gap: 32px; }
+.gap-x-7 { column-gap: 48px; }
+.gap-x-8 { column-gap: 64px; }
+.gap-x-9 { column-gap: 96px; }
+.gap-x-10 { column-gap: 128px; }
+
+.gap-y-1 { row-gap: 4px; }
+.gap-y-2 { row-gap: 8px; }
+.gap-y-3 { row-gap: 12px; }
+.gap-y-4 { row-gap: 16px; }
+.gap-y-5 { row-gap: 24px; }
+.gap-y-6 { row-gap: 32px; }
+.gap-y-7 { row-gap: 48px; }
+.gap-y-8 { row-gap: 64px; }
+.gap-y-9 { row-gap: 96px; }
+.gap-y-10 { row-gap: 128px; }
+/* موقعیت‌های اصلی */
+.position-static { position: static; }
+.position-relative { position: relative; }
+.position-absolute { position: absolute; }
+.position-fixed { position: fixed; }
+.position-sticky { position: sticky; }
+
+/* مکان‌یابی در موقعیت‌های absolute/fixed */
+.top-0 { top: 0; }
+.top-50 { top: 50%; }
+.top-100 { top: 100%; }
+.bottom-0 { bottom: 0; }
+.bottom-50 { bottom: 50%; }
+.bottom-100 { bottom: 100%; }
+.start-0 { left: 0; }
+.start-50 { left: 50%; }
+.start-100 { left: 100%; }
+.end-0 { right: 0; }
+.end-50 { right: 50%; }
+.end-100 { right: 100%; }
+
+/* تبدیل برای مرکزیت */
+.translate-middle { transform: translate(-50%, -50%); }
+.translate-middle-x { transform: translateX(-50%); }
+.translate-middle-y { transform: translateY(-50%); }
+/* عرض */
+.w-25 { width: 25%; }
+.w-50 { width: 50%; }
+.w-75 { width: 75%; }
+.w-100 { width: 100%; }
+.w-auto { width: auto; }
+.w-screen { width: 100vw; }
+.w-min { width: min-content; }
+.w-max { width: max-content; }
+.w-fit { width: fit-content; }
+
+/* ارتفاع */
+.h-25 { height: 25%; }
+.h-50 { height: 50%; }
+.h-75 { height: 75%; }
+.h-100 { height: 100%; }
+.h-auto { height: auto; }
+.h-screen { height: 100vh; }
+.h-min { height: min-content; }
+.h-max { height: max-content; }
+.h-fit { height: fit-content; }
+
+/* حداقل و حداکثر */
+.min-w-0 { min-width: 0; }
+.min-w-100 { min-width: 100%; }
+.min-h-0 { min-height: 0; }
+.min-h-100 { min-height: 100%; }
+.max-w-100 { max-width: 100%; }
+.max-h-100 { max-height: 100%; }
+
+/* نمایش */
+.d-none { display: none !important; }
+.d-inline { display: inline !important; }
+.d-inline-block { display: inline-block !important; }
+.d-block { display: block !important; }
+.d-grid { display: grid !important; }
+.d-flex { display: flex !important; }
+.d-inline-flex { display: inline-flex !important; }
+.d-table { display: table !important; }
+.d-table-cell { display: table-cell !important; }
+.d-visible { visibility: visible !important; }
+.d-invisible { visibility: hidden !important; }
+
+/* فلکس باکس */
+.flex-row { flex-direction: row !important; }
+.flex-column { flex-direction: column !important; }
+.flex-row-reverse { flex-direction: row-reverse !important; }
+.flex-column-reverse { flex-direction: column-reverse !important; }
+.flex-wrap { flex-wrap: wrap !important; }
+.flex-nowrap { flex-wrap: nowrap !important; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse !important; }
+.flex-fill { flex: 1 1 auto !important; }
+.flex-grow-0 { flex-grow: 0 !important; }
+.flex-grow-1 { flex-grow: 1 !important; }
+.flex-shrink-0 { flex-shrink: 0 !important; }
+.flex-shrink-1 { flex-shrink: 1 !important; }
+
+/* مرتب‌سازی */
+.order-0 { order: 0; }
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+.order-4 { order: 4; }
+.order-5 { order: 5; }
+.order-first { order: -1; }
+.order-last { order: 6; }
+
+/* تراز در فلکس */
+.justify-start { justify-content: flex-start !important; }
+.justify-end { justify-content: flex-end !important; }
+.justify-center { justify-content: center !important; }
+.justify-between { justify-content: space-between !important; }
+.justify-around { justify-content: space-around !important; }
+.justify-evenly { justify-content: space-evenly !important; }
+
+.align-start { align-items: flex-start !important; }
+.align-end { align-items: flex-end !important; }
+.align-center { align-items: center !important; }
+.align-baseline { align-items: baseline !important; }
+.align-stretch { align-items: stretch !important; }
+
+.align-self-start { align-self: flex-start !important; }
+.align-self-end { align-self: flex-end !important; }
+.align-self-center { align-self: center !important; }
+.align-self-baseline { align-self: baseline !important; }
+.align-self-stretch { align-self: stretch !important; }
+/* کنترل سرریز */
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+
+.overflow-x-auto { overflow-x: auto !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-x-visible { overflow-x: visible !important; }
+.overflow-x-scroll { overflow-x: scroll !important; }
+
+.overflow-y-auto { overflow-y: auto !important; }
+.overflow-y-hidden { overflow-y: hidden !important; }
+.overflow-y-visible { overflow-y: visible !important; }
+.overflow-y-scroll { overflow-y: scroll !important; }
+.z-0 { z-index: 0; }
+.z-1 { z-index: 1; }
+.z-10 { z-index: 10; }
+.z-20 { z-index: 20; }
+.z-30 { z-index: 30; }
+.z-40 { z-index: 40; }
+.z-50 { z-index: 50; }
+.z-100 { z-index: 100; }
+.z-200 { z-index: 200; }
+.z-500 { z-index: 500; }
+.z-999 { z-index: 999; }
+.z-9999 { z-index: 9999; }
+.z-auto { z-index: auto; }
+.float-start { float: left; }
+.float-end { float: right; }
+.float-none { float: none; }
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+/* اندازه فونت */
+.fs-1 { font-size: var(--uil-font-size-4xl); }
+.fs-2 { font-size: var(--uil-font-size-3xl); }
+.fs-3 { font-size: var(--uil-font-size-2xl); }
+.fs-4 { font-size: var(--uil-font-size-xl); }
+.fs-5 { font-size: var(--uil-font-size-lg); }
+.fs-6 { font-size: var(--uil-font-size-base); }
+.fs-7 { font-size: var(--uil-font-size-sm); }
+.fs-8 { font-size: var(--uil-font-size-xs); }
+
+/* وزن فونت */
+.fw-100 { font-weight: 100; }
+.fw-200 { font-weight: 200; }
+.fw-300 { font-weight: 300; }
+.fw-400 { font-weight: 400; }
+.fw-500 { font-weight: 500; }
+.fw-600 { font-weight: 600; }
+.fw-700 { font-weight: 700; }
+.fw-800 { font-weight: 800; }
+.fw-900 { font-weight: 900; }
+.fw-bold { font-weight: 700; }
+.fw-bolder { font-weight: bolder; }
+.fw-normal { font-weight: 400; }
+.fw-light { font-weight: 300; }
+.fw-lighter { font-weight: lighter; }
+
+/* تراز متن */
+.text-start { text-align: left; }
+.text-end { text-align: right; }
+.text-center { text-align: center; }
+.text-justify { text-align: justify; }
+
+/* تبدیل متن */
+.text-lowercase { text-transform: lowercase; }
+.text-uppercase { text-transform: uppercase; }
+.text-capitalize { text-transform: capitalize; }
+
+/* دکوریشن متن */
+.text-decoration-none { text-decoration: none; }
+.text-decoration-underline { text-decoration: underline; }
+.text-decoration-line-through { text-decoration: line-through; }
+
+/* فاصله خطوط */
+.lh-1 { line-height: 1; }
+.lh-sm { line-height: 1.25; }
+.lh-base { line-height: 1.5; }
+.lh-lg { line-height: 2; }
+
+/* رنگ متن (تکمیل‌شده) */
+.text-primary { color: var(--uil-primary) !important; }
+.text-secondary { color: var(--uil-secondary) !important; }
+.text-success { color: var(--uil-success) !important; }
+.text-danger { color: var(--uil-danger) !important; }
+.text-warning { color: var(--uil-warning) !important; }
+.text-info { color: var(--uil-info) !important; }
+.text-pink { color: var(--uil-pink) !important; }
+.text-teal { color: var(--uil-teal) !important; }
+.text-light { color: var(--uil-light) !important; }
+.text-dark { color: var(--uil-text-dark) !important; }
+.text-white { color: #fff !important; }
+.text-muted { color: var(--uil-text-muted) !important; }
+
+/* پس‌زمینه (تکمیل‌شده) */
+.bg-primary { background: var(--uil-primary) !important; }
+.bg-secondary { background: var(--uil-secondary) !important; }
+.bg-success { background: var(--uil-success) !important; }
+.bg-danger { background: var(--uil-danger) !important; }
+.bg-warning { background: var(--uil-warning) !important; }
+.bg-info { background: var(--uil-info) !important; }
+.bg-pink { background: var(--uil-pink) !important; }
+.bg-teal { background: var(--uil-teal) !important; }
+.bg-light { background: var(--uil-light) !important; }
+.bg-dark { background: var(--uil-text-dark) !important; }
+.bg-white { background: #fff !important; }
+.bg-transparent { background: transparent !important; }
+.bg-glass { background: var(--uil-glass-bg) !important; backdrop-filter: blur(var(--uil-glass-blur)) !important; }
+.float-start { float: left; }
+.float-end { float: right; }
+.float-none { float: none; }
+.clearfix::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+/* حاشیه کلی */
+.border { border: 1px solid var(--uil-border-card) !important; }
+.border-0 { border: 0 !important; }
+.border-2 { border-width: 2px !important; }
+.border-3 { border-width: 3px !important; }
+.border-4 { border-width: 4px !important; }
+.border-5 { border-width: 5px !important; }
+
+/* حاشیه در جهت‌های خاص */
+.border-top { border-top: 1px solid var(--uil-border-card) !important; }
+.border-end { border-right: 1px solid var(--uil-border-card) !important; }
+.border-bottom { border-bottom: 1px solid var(--uil-border-card) !important; }
+.border-start { border-left: 1px solid var(--uil-border-card) !important; }
+
+.border-top-0 { border-top: 0 !important; }
+.border-end-0 { border-right: 0 !important; }
+.border-bottom-0 { border-bottom: 0 !important; }
+.border-start-0 { border-left: 0 !important; }
+
+/* رنگ حاشیه */
+.border-primary { border-color: var(--uil-primary) !important; }
+.border-secondary { border-color: var(--uil-secondary) !important; }
+.border-success { border-color: var(--uil-success) !important; }
+.border-danger { border-color: var(--uil-danger) !important; }
+.border-warning { border-color: var(--uil-warning) !important; }
+.border-info { border-color: var(--uil-info) !important; }
+.border-pink { border-color: var(--uil-pink) !important; }
+.border-teal { border-color: var(--uil-teal) !important; }
+.border-light { border-color: var(--uil-light) !important; }
+.border-dark { border-color: var(--uil-text-dark) !important; }
+.border-white { border-color: #fff !important; }
+.shadow-none { box-shadow: none !important; }
+.shadow-xs { box-shadow: var(--uil-shadow-xs) !important; }
+.shadow-sm { box-shadow: var(--uil-shadow-sm) !important; }
+.shadow { box-shadow: var(--uil-shadow) !important; }
+.shadow-lg { box-shadow: var(--uil-shadow-lg) !important; }
+.shadow-xl { box-shadow: var(--uil-shadow-xl) !important; }
+.shadow-glow { box-shadow: var(--uil-shadow-glow) !important; }
+.shadow-se { box-shadow: var(--uil-shadow-se) !important; }
+.rounded-0 { border-radius: 0 !important; }
+.rounded-xs { border-radius: var(--uil-radius-xs) !important; }
+.rounded-sm { border-radius: var(--uil-radius-sm) !important; }
+.rounded { border-radius: var(--uil-radius) !important; }
+.rounded-lg { border-radius: var(--uil-radius-lg) !important; }
+.rounded-xl { border-radius: var(--uil-radius-xl) !important; }
+.rounded-full { border-radius: var(--uil-radius-full) !important; }
+
+/* گوشه‌های خاص */
+.rounded-top { border-radius: var(--uil-radius) var(--uil-radius) 0 0 !important; }
+.rounded-end { border-radius: 0 var(--uil-radius) var(--uil-radius) 0 !important; }
+.rounded-bottom { border-radius: 0 0 var(--uil-radius) var(--uil-radius) !important; }
+.rounded-start { border-radius: var(--uil-radius) 0 0 var(--uil-radius) !important; }
+
+.rounded-top-0 { border-radius: 0 0 0 0 !important; }
+.rounded-end-0 { border-radius: 0 0 0 0 !important; }
+.rounded-bottom-0 { border-radius: 0 0 0 0 !important; }
+.rounded-start-0 { border-radius: 0 0 0 0 !important; }
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 var(--uil-space-5);
+}
+.container-fluid {
+  max-width: 100%;
+  padding: 0 var(--uil-space-5);
+}
+.container-sm { max-width: 640px; }
+.container-md { max-width: 768px; }
+.container-lg { max-width: 1024px; }
+.container-xl { max-width: 1280px; }
+.container-xxl { max-width: 1536px; }
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -12px;
+}
+.row-cols-1 > * { flex: 0 0 100%; max-width: 100%; }
+.row-cols-2 > * { flex: 0 0 50%; max-width: 50%; }
+.row-cols-3 > * { flex: 0 0 33.333%; max-width: 33.333%; }
+.row-cols-4 > * { flex: 0 0 25%; max-width: 25%; }
+.row-cols-5 > * { flex: 0 0 20%; max-width: 20%; }
+.row-cols-6 > * { flex: 0 0 16.666%; max-width: 16.666%; }
+
+[class^="col-"] {
+  padding: 0 12px;
+  flex: 0 0 auto;
+  width: 100%;
+}
+
+/* گرید ۱۲ ستونی کامل */
+.col-1 { width: 8.333%; }
+.col-2 { width: 16.666%; }
+.col-3 { width: 25%; }
+.col-4 { width: 33.333%; }
+.col-5 { width: 41.666%; }
+.col-6 { width: 50%; }
+.col-7 { width: 58.333%; }
+.col-8 { width: 66.666%; }
+.col-9 { width: 75%; }
+.col-10 { width: 83.333%; }
+.col-11 { width: 91.666%; }
+.col-12 { width: 100%; }
+
+/* گریدهای سفارشی */
+.col-2grid { width: 50%; }
+.col-4grid { width: 25%; }
+.col-5grid { width: 20%; }
+.col-25grid { width: 4%; }
+.col-50grid { width: 2%; }
+/* نمایش در اندازه‌های مختلف */
+@media (max-width: 576px) {
+  .d-xs-none { display: none !important; }
+  .d-xs-block { display: block !important; }
+  .d-xs-flex { display: flex !important; }
+  .text-xs-center { text-align: center !important; }
+}
+@media (min-width: 576px) {
+  .d-sm-none { display: none !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-flex { display: flex !important; }
+}
+@media (min-width: 768px) {
+  .d-md-none { display: none !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+}
+@media (min-width: 992px) {
+  .d-lg-none { display: none !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-flex { display: flex !important; }
+}
+@media (min-width: 1200px) {
+  .d-xl-none { display: none !important; }
+  .d-xl-block { display: block !important; }
+  .d-xl-flex { display: flex !important; }
+}
+.opacity-0 { opacity: 0; }
+.opacity-10 { opacity: 0.1; }
+.opacity-20 { opacity: 0.2; }
+.opacity-30 { opacity: 0.3; }
+.opacity-40 { opacity: 0.4; }
+.opacity-50 { opacity: 0.5; }
+.opacity-60 { opacity: 0.6; }
+.opacity-70 { opacity: 0.7; }
+.opacity-80 { opacity: 0.8; }
+.opacity-90 { opacity: 0.9; }
+.opacity-100 { opacity: 1; }
+.cursor-auto { cursor: auto; }
+.cursor-default { cursor: default; }
+.cursor-pointer { cursor: pointer; }
+.cursor-wait { cursor: wait; }
+.cursor-text { cursor: text; }
+.cursor-move { cursor: move; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
+.cursor-zoom-in { cursor: zoom-in; }
+.cursor-zoom-out { cursor: zoom-out; }
+.user-select-none { user-select: none; }
+.user-select-auto { user-select: auto; }
+.user-select-all { user-select: all; }
+.pointer-events-none { pointer-events: none; }
+.pointer-events-auto { pointer-events: auto; }
+.transition-none { transition: none; }
+.transition-all { transition: all var(--uil-transition-elastic); }
+.transition-color { transition: color var(--uil-transition-elastic); }
+.transition-bg { transition: background var(--uil-transition-elastic); }
+.transition-shadow { transition: box-shadow var(--uil-transition-elastic); }
+.transition-transform { transition: transform var(--uil-transition-elastic); }
+.transition-opacity { transition: opacity var(--uil-transition-elastic); }
+/* ============================================================
+   سیستم شخصی‌سازی ماوس و نشانگر
+   ============================================================ */
+
+/* ----- ۱. نشانگرهای سفارشی با SVG ----- */
+.cursor-uil {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%236C63FF' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%236C63FF'/%3E%3C/svg%3E") 16 16, auto;
+}
+.cursor-uil-pointer {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Cpath d='M8 4 L8 24 L14 18 L20 26 L24 22 L18 14 L26 14 Z' fill='%236C63FF' opacity='0.8'/%3E%3C/svg%3E") 8 4, pointer;
+}
+.cursor-uil-grab {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='10' cy='16' r='4' fill='%236C63FF' opacity='0.6'/%3E%3Ccircle cx='22' cy='16' r='4' fill='%236C63FF' opacity='0.6'/%3E%3C/svg%3E") 16 16, grab;
+}
+.cursor-uil-zoom-in {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='14' cy='14' r='10' fill='none' stroke='%236C63FF' stroke-width='2'/%3E%3Cline x1='22' y1='22' x2='28' y2='28' stroke='%236C63FF' stroke-width='2'/%3E%3Cline x1='14' y1='8' x2='14' y2='20' stroke='%236C63FF' stroke-width='2'/%3E%3Cline x1='8' y1='14' x2='20' y2='14' stroke='%236C63FF' stroke-width='2'/%3E%3C/svg%3E") 14 14, zoom-in;
+}
+.cursor-uil-zoom-out {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ccircle cx='14' cy='14' r='10' fill='none' stroke='%236C63FF' stroke-width='2'/%3E%3Cline x1='22' y1='22' x2='28' y2='28' stroke='%236C63FF' stroke-width='2'/%3E%3Cline x1='8' y1='14' x2='20' y2='14' stroke='%236C63FF' stroke-width='2'/%3E%3C/svg%3E") 14 14, zoom-out;
+}
+
+/* ----- ۲. نشانگرهای پیشرفته برای حالت‌های خاص ----- */
+.cursor-none { cursor: none; }
+.cursor-default { cursor: default; }
+.cursor-pointer { cursor: pointer; }
+.cursor-wait { cursor: wait; }
+.cursor-text { cursor: text; }
+.cursor-move { cursor: move; }
+.cursor-not-allowed { cursor: not-allowed; }
+.cursor-grab { cursor: grab; }
+.cursor-grabbing { cursor: grabbing; }
+.cursor-zoom-in { cursor: zoom-in; }
+.cursor-zoom-out { cursor: zoom-out; }
+.cursor-help { cursor: help; }
+.cursor-progress { cursor: progress; }
+.cursor-cell { cursor: cell; }
+.cursor-crosshair { cursor: crosshair; }
+.cursor-vertical-text { cursor: vertical-text; }
+.cursor-alias { cursor: alias; }
+.cursor-copy { cursor: copy; }
+.cursor-no-drop { cursor: no-drop; }
+.cursor-context-menu { cursor: context-menu; }
+.cursor-col-resize { cursor: col-resize; }
+.cursor-row-resize { cursor: row-resize; }
+.cursor-all-scroll { cursor: all-scroll; }
+.cursor-nesw-resize { cursor: nesw-resize; }
+.cursor-nwse-resize { cursor: nwse-resize; }
+
+/* ----- ۳. افکت‌های بصری قوی هنگام هاور ماوس ----- */
+.hover-glow {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-glow:hover {
+  transform: scale(1.04);
+  box-shadow: 0 0 30px rgba(108, 99, 255, 0.20);
+  filter: brightness(1.1);
+}
+.hover-glow-primary:hover {
+  box-shadow: 0 0 40px rgba(108, 99, 255, 0.25);
+}
+.hover-glow-success:hover {
+  box-shadow: 0 0 40px rgba(40, 167, 69, 0.25);
+}
+.hover-glow-danger:hover {
+  box-shadow: 0 0 40px rgba(220, 53, 69, 0.25);
+}
+.hover-glow-pink:hover {
+  box-shadow: 0 0 40px rgba(232, 62, 140, 0.25);
+}
+
+.hover-lift {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-lift:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: var(--uil-shadow-lg);
+}
+
+.hover-scale {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-scale:hover {
+  transform: scale(1.06);
+}
+
+.hover-rotate {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-rotate:hover {
+  transform: rotate(4deg) scale(1.02);
+}
+
+.hover-bright {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-bright:hover {
+  filter: brightness(1.15);
+}
+
+.hover-blur {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-blur:hover {
+  filter: blur(2px);
+}
+.hover-blur:hover * {
+  filter: blur(0px);
+}
+
+.hover-border-glow {
+  transition: all var(--uil-transition-elastic);
+}
+.hover-border-glow:hover {
+  border-color: var(--uil-primary) !important;
+  box-shadow: 0 0 20px rgba(108, 99, 255, 0.10);
+}
+
+/* ----- ۴. افکت‌های کلیک (فشرده شدن) ----- */
+.active-press:active {
+  transform: scale(0.94);
+  transition: all 0.08s ease;
+}
+.active-pulse:active {
+  animation: pulsePress 0.2s ease;
+}
+@keyframes pulsePress {
+  0% { transform: scale(1); }
+  40% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+
+/* ----- ۵. بازخورد پیشرفته ماوس برای المان‌های قابل کشیدن ----- */
+.drag-handle {
+  cursor: grab;
+  user-select: none;
+  transition: all var(--uil-transition-elastic);
+}
+.drag-handle:hover {
+  background: rgba(255,255,255,0.04);
+  transform: scale(1.02);
+}
+.drag-handle:active {
+  cursor: grabbing;
+  transform: scale(0.96);
+}
+
+/* ----- ۶. حذف انتخاب متن در کل المان ----- */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
+/* ----- ۷. بازخورد ماوس روی لینک‌ها و دکمه‌ها ----- */
+.link-uil {
+  color: var(--uil-primary);
+  text-decoration: none;
+  position: relative;
+  transition: all var(--uil-transition-elastic);
+  cursor: pointer;
+}
+.link-uil::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--uil-primary);
+  transition: all var(--uil-transition-elastic);
+}
+.link-uil:hover::after {
+  width: 100%;
+}
+.link-uil:hover {
+  color: var(--uil-pink);
+}
+/* ============================================================
+   سیستم موقعیت‌یابی پیشرفته المان
+   ============================================================ */
+
+/* ----- ۱. موقعیت‌های پایه ----- */
+.position-static { position: static !important; }
+.position-relative { position: relative !important; }
+.position-absolute { position: absolute !important; }
+.position-fixed { position: fixed !important; }
+.position-sticky { position: sticky !important; }
+
+/* ----- ۲. موقعیت‌یابی با مقادیر درصدی و عددی (Top, Right, Bottom, Left) ----- */
+/* مقادیر ۰ تا ۱۰۰ درصد */
+.top-0 { top: 0 !important; }
+.top-5 { top: 5% !important; }
+.top-10 { top: 10% !important; }
+.top-15 { top: 15% !important; }
+.top-20 { top: 20% !important; }
+.top-25 { top: 25% !important; }
+.top-30 { top: 30% !important; }
+.top-35 { top: 35% !important; }
+.top-40 { top: 40% !important; }
+.top-45 { top: 45% !important; }
+.top-50 { top: 50% !important; }
+.top-55 { top: 55% !important; }
+.top-60 { top: 60% !important; }
+.top-65 { top: 65% !important; }
+.top-70 { top: 70% !important; }
+.top-75 { top: 75% !important; }
+.top-80 { top: 80% !important; }
+.top-85 { top: 85% !important; }
+.top-90 { top: 90% !important; }
+.top-95 { top: 95% !important; }
+.top-100 { top: 100% !important; }
+
+.right-0 { right: 0 !important; }
+.right-5 { right: 5% !important; }
+.right-10 { right: 10% !important; }
+.right-15 { right: 15% !important; }
+.right-20 { right: 20% !important; }
+.right-25 { right: 25% !important; }
+.right-30 { right: 30% !important; }
+.right-35 { right: 35% !important; }
+.right-40 { right: 40% !important; }
+.right-45 { right: 45% !important; }
+.right-50 { right: 50% !important; }
+.right-55 { right: 55% !important; }
+.right-60 { right: 60% !important; }
+.right-65 { right: 65% !important; }
+.right-70 { right: 70% !important; }
+.right-75 { right: 75% !important; }
+.right-80 { right: 80% !important; }
+.right-85 { right: 85% !important; }
+.right-90 { right: 90% !important; }
+.right-95 { right: 95% !important; }
+.right-100 { right: 100% !important; }
+
+.bottom-0 { bottom: 0 !important; }
+.bottom-5 { bottom: 5% !important; }
+.bottom-10 { bottom: 10% !important; }
+.bottom-15 { bottom: 15% !important; }
+.bottom-20 { bottom: 20% !important; }
+.bottom-25 { bottom: 25% !important; }
+.bottom-30 { bottom: 30% !important; }
+.bottom-35 { bottom: 35% !important; }
+.bottom-40 { bottom: 40% !important; }
+.bottom-45 { bottom: 45% !important; }
+.bottom-50 { bottom: 50% !important; }
+.bottom-55 { bottom: 55% !important; }
+.bottom-60 { bottom: 60% !important; }
+.bottom-65 { bottom: 65% !important; }
+.bottom-70 { bottom: 70% !important; }
+.bottom-75 { bottom: 75% !important; }
+.bottom-80 { bottom: 80% !important; }
+.bottom-85 { bottom: 85% !important; }
+.bottom-90 { bottom: 90% !important; }
+.bottom-95 { bottom: 95% !important; }
+.bottom-100 { bottom: 100% !important; }
+
+.left-0 { left: 0 !important; }
+.left-5 { left: 5% !important; }
+.left-10 { left: 10% !important; }
+.left-15 { left: 15% !important; }
+.left-20 { left: 20% !important; }
+.left-25 { left: 25% !important; }
+.left-30 { left: 30% !important; }
+.left-35 { left: 35% !important; }
+.left-40 { left: 40% !important; }
+.left-45 { left: 45% !important; }
+.left-50 { left: 50% !important; }
+.left-55 { left: 55% !important; }
+.left-60 { left: 60% !important; }
+.left-65 { left: 65% !important; }
+.left-70 { left: 70% !important; }
+.left-75 { left: 75% !important; }
+.left-80 { left: 80% !important; }
+.left-85 { left: 85% !important; }
+.left-90 { left: 90% !important; }
+.left-95 { left: 95% !important; }
+.left-100 { left: 100% !important; }
+
+/* ----- ۳. Inset (تعیین همزمان همه جهات) ----- */
+.inset-0 { inset: 0 !important; }
+.inset-5 { inset: 5% !important; }
+.inset-10 { inset: 10% !important; }
+.inset-15 { inset: 15% !important; }
+.inset-20 { inset: 20% !important; }
+.inset-25 { inset: 25% !important; }
+.inset-30 { inset: 30% !important; }
+.inset-40 { inset: 40% !important; }
+.inset-50 { inset: 50% !important; }
+.inset-auto { inset: auto !important; }
+
+.inset-x-0 { left: 0; right: 0; }
+.inset-x-5 { left: 5%; right: 5%; }
+.inset-x-10 { left: 10%; right: 10%; }
+.inset-x-20 { left: 20%; right: 20%; }
+.inset-x-30 { left: 30%; right: 30%; }
+.inset-x-40 { left: 40%; right: 40%; }
+.inset-x-50 { left: 50%; right: 50%; }
+.inset-x-auto { left: auto; right: auto; }
+
+.inset-y-0 { top: 0; bottom: 0; }
+.inset-y-5 { top: 5%; bottom: 5%; }
+.inset-y-10 { top: 10%; bottom: 10%; }
+.inset-y-20 { top: 20%; bottom: 20%; }
+.inset-y-30 { top: 30%; bottom: 30%; }
+.inset-y-40 { top: 40%; bottom: 40%; }
+.inset-y-50 { top: 50%; bottom: 50%; }
+.inset-y-auto { top: auto; bottom: auto; }
+
+/* ----- ۴. تبدیل‌ها (Transform) پیشرفته ----- */
+/* Translate */
+.translate-0 { transform: translate(0, 0) !important; }
+.translate-x-0 { transform: translateX(0) !important; }
+.translate-y-0 { transform: translateY(0) !important; }
+
+.translate-x-5 { transform: translateX(5%) !important; }
+.translate-x-10 { transform: translateX(10%) !important; }
+.translate-x-20 { transform: translateX(20%) !important; }
+.translate-x-25 { transform: translateX(25%) !important; }
+.translate-x-30 { transform: translateX(30%) !important; }
+.translate-x-40 { transform: translateX(40%) !important; }
+.translate-x-50 { transform: translateX(50%) !important; }
+.translate-x-75 { transform: translateX(75%) !important; }
+.translate-x-100 { transform: translateX(100%) !important; }
+.translate-x--5 { transform: translateX(-5%) !important; }
+.translate-x--10 { transform: translateX(-10%) !important; }
+.translate-x--20 { transform: translateX(-20%) !important; }
+.translate-x--25 { transform: translateX(-25%) !important; }
+.translate-x--30 { transform: translateX(-30%) !important; }
+.translate-x--40 { transform: translateX(-40%) !important; }
+.translate-x--50 { transform: translateX(-50%) !important; }
+.translate-x--75 { transform: translateX(-75%) !important; }
+.translate-x--100 { transform: translateX(-100%) !important; }
+
+.translate-y-5 { transform: translateY(5%) !important; }
+.translate-y-10 { transform: translateY(10%) !important; }
+.translate-y-20 { transform: translateY(20%) !important; }
+.translate-y-25 { transform: translateY(25%) !important; }
+.translate-y-30 { transform: translateY(30%) !important; }
+.translate-y-40 { transform: translateY(40%) !important; }
+.translate-y-50 { transform: translateY(50%) !important; }
+.translate-y-75 { transform: translateY(75%) !important; }
+.translate-y-100 { transform: translateY(100%) !important; }
+.translate-y--5 { transform: translateY(-5%) !important; }
+.translate-y--10 { transform: translateY(-10%) !important; }
+.translate-y--20 { transform: translateY(-20%) !important; }
+.translate-y--25 { transform: translateY(-25%) !important; }
+.translate-y--30 { transform: translateY(-30%) !important; }
+.translate-y--40 { transform: translateY(-40%) !important; }
+.translate-y--50 { transform: translateY(-50%) !important; }
+.translate-y--75 { transform: translateY(-75%) !important; }
+.translate-y--100 { transform: translateY(-100%) !important; }
+
+.translate-middle { transform: translate(-50%, -50%) !important; }
+.translate-middle-x { transform: translateX(-50%) !important; }
+.translate-middle-y { transform: translateY(-50%) !important; }
+
+/* Rotate (چرخش) */
+.rotate-0 { transform: rotate(0deg) !important; }
+.rotate-5 { transform: rotate(5deg) !important; }
+.rotate-10 { transform: rotate(10deg) !important; }
+.rotate-15 { transform: rotate(15deg) !important; }
+.rotate-20 { transform: rotate(20deg) !important; }
+.rotate-30 { transform: rotate(30deg) !important; }
+.rotate-45 { transform: rotate(45deg) !important; }
+.rotate-60 { transform: rotate(60deg) !important; }
+.rotate-90 { transform: rotate(90deg) !important; }
+.rotate-180 { transform: rotate(180deg) !important; }
+.rotate--5 { transform: rotate(-5deg) !important; }
+.rotate--10 { transform: rotate(-10deg) !important; }
+.rotate--15 { transform: rotate(-15deg) !important; }
+.rotate--20 { transform: rotate(-20deg) !important; }
+.rotate--30 { transform: rotate(-30deg) !important; }
+.rotate--45 { transform: rotate(-45deg) !important; }
+.rotate--60 { transform: rotate(-60deg) !important; }
+.rotate--90 { transform: rotate(-90deg) !important; }
+.rotate--180 { transform: rotate(-180deg) !important; }
+
+/* Scale (بزرگ‌نمایی) */
+.scale-0 { transform: scale(0) !important; }
+.scale-50 { transform: scale(0.5) !important; }
+.scale-75 { transform: scale(0.75) !important; }
+.scale-90 { transform: scale(0.9) !important; }
+.scale-95 { transform: scale(0.95) !important; }
+.scale-100 { transform: scale(1) !important; }
+.scale-105 { transform: scale(1.05) !important; }
+.scale-110 { transform: scale(1.1) !important; }
+.scale-125 { transform: scale(1.25) !important; }
+.scale-150 { transform: scale(1.5) !important; }
+.scale-200 { transform: scale(2) !important; }
+
+/* Scale در جهت‌های خاص */
+.scale-x-0 { transform: scaleX(0) !important; }
+.scale-x-50 { transform: scaleX(0.5) !important; }
+.scale-x-100 { transform: scaleX(1) !important; }
+.scale-x-150 { transform: scaleX(1.5) !important; }
+.scale-y-0 { transform: scaleY(0) !important; }
+.scale-y-50 { transform: scaleY(0.5) !important; }
+.scale-y-100 { transform: scaleY(1) !important; }
+.scale-y-150 { transform: scaleY(1.5) !important; }
+
+/* ----- ۵. Transform-Origin (نقطه مرجع تبدیل) ----- */
+.origin-center { transform-origin: center center !important; }
+.origin-top { transform-origin: top center !important; }
+.origin-top-right { transform-origin: top right !important; }
+.origin-top-left { transform-origin: top left !important; }
+.origin-bottom { transform-origin: bottom center !important; }
+.origin-bottom-right { transform-origin: bottom right !important; }
+.origin-bottom-left { transform-origin: bottom left !important; }
+.origin-left { transform-origin: left center !important; }
+.origin-right { transform-origin: right center !important; }
+
+/* ----- ۶. Z-Index پیشرفته (لایه‌بندی عمقی) ----- */
+.z-0 { z-index: 0 !important; }
+.z-1 { z-index: 1 !important; }
+.z-2 { z-index: 2 !important; }
+.z-3 { z-index: 3 !important; }
+.z-4 { z-index: 4 !important; }
+.z-5 { z-index: 5 !important; }
+.z-10 { z-index: 10 !important; }
+.z-20 { z-index: 20 !important; }
+.z-30 { z-index: 30 !important; }
+.z-40 { z-index: 40 !important; }
+.z-50 { z-index: 50 !important; }
+.z-60 { z-index: 60 !important; }
+.z-70 { z-index: 70 !important; }
+.z-80 { z-index: 80 !important; }
+.z-90 { z-index: 90 !important; }
+.z-100 { z-index: 100 !important; }
+.z-200 { z-index: 200 !important; }
+.z-300 { z-index: 300 !important; }
+.z-400 { z-index: 400 !important; }
+.z-500 { z-index: 500 !important; }
+.z-999 { z-index: 999 !important; }
+.z-9999 { z-index: 9999 !important; }
+.z-auto { z-index: auto !important; }
+
+/* ----- ۷. Object-fit برای تصاویر و ویدیوها ----- */
+.object-contain { object-fit: contain !important; }
+.object-cover { object-fit: cover !important; }
+.object-fill { object-fit: fill !important; }
+.object-none { object-fit: none !important; }
+.object-scale-down { object-fit: scale-down !important; }
+
+.object-position-top { object-position: top center !important; }
+.object-position-bottom { object-position: bottom center !important; }
+.object-position-left { object-position: left center !important; }
+.object-position-right { object-position: right center !important; }
+.object-position-center { object-position: center center !important; }
+
+/* ----- ۸. Overflow (مدیریت سرریز) پیشرفته ----- */
+.overflow-auto { overflow: auto !important; }
+.overflow-hidden { overflow: hidden !important; }
+.overflow-visible { overflow: visible !important; }
+.overflow-scroll { overflow: scroll !important; }
+.overflow-clip { overflow: clip !important; }
+
+.overflow-x-auto { overflow-x: auto !important; }
+.overflow-x-hidden { overflow-x: hidden !important; }
+.overflow-x-visible { overflow-x: visible !important; }
+.overflow-x-scroll { overflow-x: scroll !important; }
+.overflow-x-clip { overflow-x: clip !important; }
+
+.overflow-y-auto { overflow-y: auto !important; }
+.overflow-y-hidden { overflow-y: hidden !important; }
+.overflow-y-visible { overflow-y: visible !important; }
+.overflow-y-scroll { overflow-y: scroll !important; }
+.overflow-y-clip { overflow-y: clip !important; }
+
+/* ----- ۹. کلاس‌های کمکی برای موقعیت‌یابی المان‌ها در گوشه‌ها ----- */
+.corner-tl {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+}
+.corner-tr {
+  position: absolute !important;
+  top: 0 !important;
+  right: 0 !important;
+}
+.corner-bl {
+  position: absolute !important;
+  bottom: 0 !important;
+  left: 0 !important;
+}
+.corner-br {
+  position: absolute !important;
+  bottom: 0 !important;
+  right: 0 !important;
+}
+.corner-center {
+  position: absolute !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+}
+
+/* ----- ۱۰. چسبندگی (Sticky) با آفست ----- */
+.sticky-top { position: sticky !important; top: 0 !important; z-index: 100; }
+.sticky-bottom { position: sticky !important; bottom: 0 !important; z-index: 100; }
+.sticky-top-5 { position: sticky !important; top: 5% !important; z-index: 100; }
+.sticky-top-10 { position: sticky !important; top: 10% !important; z-index: 100; }
+.sticky-top-20 { position: sticky !important; top: 20% !important; z-index: 100; }
+
+/* ============================================================
+   سیستم انیمیشن‌های ورود و خروج
+   ============================================================ */
+
+/* ورود از پایین */
+@keyframes slideUpIn {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.anim-slide-up {
+  animation: slideUpIn 0.6s var(--uil-transition-elastic) forwards;
+}
+
+/* ورود از بالا */
+@keyframes slideDownIn {
+  0% { transform: translateY(-40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.anim-slide-down {
+  animation: slideDownIn 0.6s var(--uil-transition-elastic) forwards;
+}
+
+/* ورود از چپ */
+@keyframes slideLeftIn {
+  0% { transform: translateX(-40px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.anim-slide-left {
+  animation: slideLeftIn 0.6s var(--uil-transition-elastic) forwards;
+}
+
+/* ورود از راست */
+@keyframes slideRightIn {
+  0% { transform: translateX(40px); opacity: 0; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+.anim-slide-right {
+  animation: slideRightIn 0.6s var(--uil-transition-elastic) forwards;
+}
+
+/* بزرگ‌نمایی با چرخش */
+@keyframes zoomRotateIn {
+  0% { transform: scale(0.5) rotate(-10deg); opacity: 0; }
+  100% { transform: scale(1) rotate(0); opacity: 1; }
+}
+.anim-zoom-rotate {
+  animation: zoomRotateIn 0.7s var(--uil-transition-elastic) forwards;
+}
+
+/* جهش کشسان */
+@keyframes elasticBounceIn {
+  0% { transform: scale(0.3); opacity: 0; }
+  50% { transform: scale(1.1); opacity: 1; }
+  70% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+.anim-bounce-in {
+  animation: elasticBounceIn 0.8s var(--uil-transition-elastic) forwards;
+}
+
+/* محو شدن */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.anim-fade-in {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.anim-fade-out {
+  animation: fadeOut 0.5s ease forwards;
+}
+
+/* تاخیرهای انیمیشن */
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
+.delay-6 { animation-delay: 0.6s; }
+.delay-7 { animation-delay: 0.7s; }
+.delay-8 { animation-delay: 0.8s; }
+.delay-9 { animation-delay: 0.9s; }
+.delay-10 { animation-delay: 1s; }
+
+
+/* ============================================================
+   سیستم فیلتر و جستجو
+   ============================================================ */
+
+/* فیلترها برای تاری، روشنایی، کنتراست */
+.filter-none { filter: none; }
+.filter-blur-sm { filter: blur(2px); }
+.filter-blur-md { filter: blur(4px); }
+.filter-blur-lg { filter: blur(8px); }
+.filter-blur-xl { filter: blur(16px); }
+.filter-brightness-50 { filter: brightness(0.5); }
+.filter-brightness-75 { filter: brightness(0.75); }
+.filter-brightness-90 { filter: brightness(0.9); }
+.filter-brightness-110 { filter: brightness(1.1); }
+.filter-brightness-125 { filter: brightness(1.25); }
+.filter-brightness-150 { filter: brightness(1.5); }
+.filter-contrast-50 { filter: contrast(0.5); }
+.filter-contrast-75 { filter: contrast(0.75); }
+.filter-contrast-125 { filter: contrast(1.25); }
+.filter-contrast-150 { filter: contrast(1.5); }
+.filter-grayscale { filter: grayscale(1); }
+.filter-grayscale-50 { filter: grayscale(0.5); }
+.filter-sepia { filter: sepia(1); }
+.filter-sepia-50 { filter: sepia(0.5); }
+.filter-hue-rotate-30 { filter: hue-rotate(30deg); }
+.filter-hue-rotate-60 { filter: hue-rotate(60deg); }
+.filter-hue-rotate-90 { filter: hue-rotate(90deg); }
+.filter-hue-rotate-180 { filter: hue-rotate(180deg); }
+.filter-invert { filter: invert(1); }
+.filter-invert-50 { filter: invert(0.5); }
+.filter-saturate-0 { filter: saturate(0); }
+.filter-saturate-50 { filter: saturate(0.5); }
+.filter-saturate-150 { filter: saturate(1.5); }
+.filter-saturate-200 { filter: saturate(2); }
+
+/* فیلتر ترکیبی (مفید برای هاور) */
+.filter-hover-bright:hover { filter: brightness(1.1); transition: all var(--uil-transition-elastic); }
+.filter-hover-dark:hover { filter: brightness(0.8); transition: all var(--uil-transition-elastic); }
+.filter-hover-blur:hover { filter: blur(2px); transition: all var(--uil-transition-elastic); }
+.filter-hover-grayscale:hover { filter: grayscale(1); transition: all var(--uil-transition-elastic); }
+
+/* Backdrop-filter (پس‌زمینه‌ی بلور) */
+.backdrop-blur-none { backdrop-filter: none; }
+.backdrop-blur-sm { backdrop-filter: blur(4px); }
+.backdrop-blur-md { backdrop-filter: blur(8px); }
+.backdrop-blur-lg { backdrop-filter: blur(16px); }
+.backdrop-blur-xl { backdrop-filter: blur(24px); }
+.backdrop-blur-2xl { backdrop-filter: blur(40px); }
+
+/* Mix-blend-mode برای ترکیب رنگ‌ها */
+.blend-normal { mix-blend-mode: normal; }
+.blend-multiply { mix-blend-mode: multiply; }
+.blend-screen { mix-blend-mode: screen; }
+.blend-overlay { mix-blend-mode: overlay; }
+.blend-darken { mix-blend-mode: darken; }
+.blend-lighten { mix-blend-mode: lighten; }
+.blend-color-dodge { mix-blend-mode: color-dodge; }
+.blend-color-burn { mix-blend-mode: color-burn; }
+.blend-hard-light { mix-blend-mode: hard-light; }
+.blend-soft-light { mix-blend-mode: soft-light; }
+.blend-difference { mix-blend-mode: difference; }
+.blend-exclusion { mix-blend-mode: exclusion; }
+
+
+/* ============================================================
+   کارت‌های پیشرفته با هدر و فوتر
+   ============================================================ */
+
+.card-advanced {
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-lg);
+  overflow: hidden;
+  box-shadow: var(--uil-shadow);
+  transition: all var(--uil-transition-elastic);
+  height: 100%;
+}
+.card-advanced:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--uil-shadow-lg);
+}
+.card-advanced .card-header {
+  padding: var(--uil-space-4) var(--uil-space-5);
+  border-bottom: 1px solid var(--uil-border-card);
+  font-weight: 700;
+  color: var(--uil-text);
+  background: rgba(255,255,255,0.02);
+}
+.card-advanced .card-body {
+  padding: var(--uil-space-5);
+}
+.card-advanced .card-footer {
+  padding: var(--uil-space-4) var(--uil-space-5);
+  border-top: 1px solid var(--uil-border-card);
+  color: var(--uil-text-muted);
+  background: rgba(255,255,255,0.01);
+}
+.card-advanced .card-img {
+  width: 100%;
+  aspect-ratio: 16/9;
+  object-fit: cover;
+}
+.card-advanced .card-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 40%, rgba(0,0,0,0.6));
+  display: flex;
+  align-items: flex-end;
+  padding: var(--uil-space-5);
+  color: #fff;
+}
+.card-advanced .card-img-overlay .card-title {
+  color: #fff;
+}
+.card-advanced .card-img-overlay .card-text {
+  color: rgba(255,255,255,0.8);
+}
+.card-advanced .card-divider {
+  height: 4px;
+  background: linear-gradient(90deg, var(--uil-primary), var(--uil-pink));
+  width: 100%;
+}
+.card-advanced-primary .card-divider { background: linear-gradient(90deg, var(--uil-primary), var(--uil-indigo)); }
+.card-advanced-success .card-divider { background: linear-gradient(90deg, var(--uil-success), var(--uil-teal)); }
+.card-advanced-danger .card-divider { background: linear-gradient(90deg, var(--uil-danger), var(--uil-rose)); }
+.card-advanced-pink .card-divider { background: linear-gradient(90deg, var(--uil-pink), var(--uil-rose)); }
+.card-advanced-teal .card-divider { background: linear-gradient(90deg, var(--uil-teal), var(--uil-info)); }
+
+/* کارت با حاشیه رنگی */
+.card-bordered-primary { border-color: var(--uil-primary); border-width: 2px; }
+.card-bordered-success { border-color: var(--uil-success); border-width: 2px; }
+.card-bordered-danger { border-color: var(--uil-danger); border-width: 2px; }
+.card-bordered-pink { border-color: var(--uil-pink); border-width: 2px; }
+.card-bordered-teal { border-color: var(--uil-teal); border-width: 2px; }
+
+/* کارت با پس‌زمینه گرادیانت */
+.card-gradient-primary { background: linear-gradient(135deg, var(--uil-primary), var(--uil-indigo)); border: none; }
+.card-gradient-success { background: linear-gradient(135deg, var(--uil-success), var(--uil-teal)); border: none; }
+.card-gradient-danger { background: linear-gradient(135deg, var(--uil-danger), var(--uil-rose)); border: none; }
+.card-gradient-pink { background: linear-gradient(135deg, var(--uil-pink), var(--uil-rose)); border: none; }
+.card-gradient-teal { background: linear-gradient(135deg, var(--uil-teal), var(--uil-info)); border: none; }
+.card-gradient-primary .card-text,
+.card-gradient-success .card-text,
+.card-gradient-danger .card-text,
+.card-gradient-pink .card-text,
+.card-gradient-teal .card-text { color: rgba(255,255,255,0.8); }
+
+
+/* ============================================================
+   دکمه‌های شبکه‌های اجتماعی
+   ============================================================ */
+
+.btn-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--uil-space-2);
+  padding: 10px 20px;
+  border-radius: var(--uil-radius-sm);
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  text-decoration: none;
+  color: #fff;
+}
+.btn-social:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--uil-shadow-lg);
+}
+.btn-social-telegram { background: #0088cc; }
+.btn-social-telegram:hover { background: #0077b3; }
+.btn-social-instagram { background: #e1306c; }
+.btn-social-instagram:hover { background: #c13584; }
+.btn-social-whatsapp { background: #25d366; }
+.btn-social-whatsapp:hover { background: #1da851; }
+.btn-social-linkedin { background: #0077b5; }
+.btn-social-linkedin:hover { background: #005e93; }
+.btn-social-github { background: #181717; }
+.btn-social-github:hover { background: #24292e; }
+.btn-social-twitter { background: #000000; }
+.btn-social-twitter:hover { background: #1a1a1a; }
+.btn-social-facebook { background: #1877f2; }
+.btn-social-facebook:hover { background: #1464d4; }
+.btn-social-youtube { background: #ff0000; }
+.btn-social-youtube:hover { background: #cc0000; }
+.btn-social-google { background: #4285f4; }
+.btn-social-google:hover { background: #3367d6; }
+.btn-social-discord { background: #5865f2; }
+.btn-social-discord:hover { background: #4752c4; }
+.btn-social-medium { background: #000000; }
+.btn-social-medium:hover { background: #292929; }
+.btn-social-pinterest { background: #e60023; }
+.btn-social-pinterest:hover { background: #bd0018; }
+.btn-social-tiktok { background: #000000; }
+.btn-social-tiktok:hover { background: #1a1a1a; }
+.btn-social-reddit { background: #ff4500; }
+.btn-social-reddit:hover { background: #cc3700; }
+
+/* سایزهای دکمه اجتماعی */
+.btn-social-sm { padding: 6px 14px; font-size: var(--uil-font-size-sm); }
+.btn-social-lg { padding: 14px 28px; font-size: var(--uil-font-size-lg); }
+.btn-social-xl { padding: 18px 36px; font-size: var(--uil-font-size-xl); }
+
+/* دکمه اجتماعی بدون پس‌زمینه */
+.btn-social-outline {
+  background: transparent !important;
+  border: 2px solid currentColor;
+  color: var(--uil-text);
+}
+.btn-social-outline-telegram { color: #0088cc; border-color: #0088cc; }
+.btn-social-outline-telegram:hover { background: #0088cc !important; color: #fff; }
+.btn-social-outline-instagram { color: #e1306c; border-color: #e1306c; }
+.btn-social-outline-instagram:hover { background: #e1306c !important; color: #fff; }
+.btn-social-outline-github { color: #181717; border-color: #181717; }
+.btn-social-outline-github:hover { background: #181717 !important; color: #fff; }
+.btn-social-outline-linkedin { color: #0077b5; border-color: #0077b5; }
+.btn-social-outline-linkedin:hover { background: #0077b5 !important; color: #fff; }
+
+
+/* ============================================================
+   ابزارهای تایپوگرافی پیشرفته
+   ============================================================ */
+
+/* حروف اول بزرگ */
+.dropcap::first-letter {
+  font-size: 4em;
+  float: left;
+  line-height: 1;
+  margin-right: var(--uil-space-3);
+  color: var(--uil-primary);
+  font-weight: 700;
+}
+.dropcap-primary::first-letter { color: var(--uil-primary); }
+.dropcap-success::first-letter { color: var(--uil-success); }
+.dropcap-danger::first-letter { color: var(--uil-danger); }
+.dropcap-pink::first-letter { color: var(--uil-pink); }
+.dropcap-teal::first-letter { color: var(--uil-teal); }
+
+/* خط‌چین */
+.underline-dotted { text-decoration: underline dotted; text-underline-offset: 4px; }
+.underline-dashed { text-decoration: underline dashed; text-underline-offset: 4px; }
+.underline-wavy { text-decoration: underline wavy; text-underline-offset: 4px; }
+.underline-primary { text-decoration-color: var(--uil-primary); }
+.underline-success { text-decoration-color: var(--uil-success); }
+.underline-danger { text-decoration-color: var(--uil-danger); }
+.underline-pink { text-decoration-color: var(--uil-pink); }
+.underline-teal { text-decoration-color: var(--uil-teal); }
+
+/* سایه متن */
+.text-shadow-sm { text-shadow: 0 1px 4px rgba(0,0,0,0.10); }
+.text-shadow-md { text-shadow: 0 2px 8px rgba(0,0,0,0.15); }
+.text-shadow-lg { text-shadow: 0 4px 16px rgba(0,0,0,0.20); }
+.text-shadow-xl { text-shadow: 0 8px 32px rgba(0,0,0,0.25); }
+.text-shadow-glow { text-shadow: 0 0 30px rgba(108,99,255,0.20); }
+
+/* خط‌کشی */
+.strikethrough { text-decoration: line-through; text-decoration-color: var(--uil-danger); }
+
+/* برجسته‌سازی متن */
+.highlight {
+  background: linear-gradient(90deg, rgba(108,99,255,0.15), rgba(232,62,140,0.10));
+  padding: 0 var(--uil-space-1);
+  border-radius: var(--uil-radius-xs);
+}
+.highlight-primary { background: rgba(108,99,255,0.12); }
+.highlight-success { background: rgba(40,167,69,0.12); }
+.highlight-danger { background: rgba(220,53,69,0.12); }
+.highlight-warning { background: rgba(255,193,7,0.12); }
+.highlight-pink { background: rgba(232,62,140,0.12); }
+.highlight-teal { background: rgba(32,201,151,0.12); }
+
+
+/* ============================================================
+   سیستم جدول پیشرفته
+   ============================================================ */
+
+.table-advanced {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 4px;
+}
+.table-advanced thead th {
+  padding: 12px 16px;
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border-radius: var(--uil-radius-sm) var(--uil-radius-sm) 0 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: var(--uil-font-size-xs);
+  letter-spacing: 0.5px;
+  color: var(--uil-text-muted);
+}
+.table-advanced tbody tr {
+  background: var(--uil-glass-bg);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border-radius: var(--uil-radius-sm);
+  transition: all var(--uil-transition-elastic);
+}
+.table-advanced tbody tr:hover {
+  transform: scale(1.01);
+  box-shadow: var(--uil-shadow);
+}
+.table-advanced tbody td {
+  padding: 12px 16px;
+  color: var(--uil-text);
+  border-bottom: 1px solid transparent;
+}
+.table-advanced tbody tr:last-child td {
+  border-bottom: none;
+}
+.table-advanced tbody td:first-child {
+  border-radius: var(--uil-radius-sm) 0 0 var(--uil-radius-sm);
+}
+.table-advanced tbody td:last-child {
+  border-radius: 0 var(--uil-radius-sm) var(--uil-radius-sm) 0;
+}
+.table-advanced .table-actions {
+  display: flex;
+  gap: var(--uil-space-2);
+}
+.table-advanced .table-status {
+  display: inline-block;
+  padding: 2px 12px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 600;
+}
+.table-advanced .table-status-success { background: rgba(40,167,69,0.10); color: var(--uil-success); }
+.table-advanced .table-status-danger { background: rgba(220,53,69,0.10); color: var(--uil-danger); }
+.table-advanced .table-status-warning { background: rgba(255,193,7,0.10); color: var(--uil-warning); }
+.table-advanced .table-status-primary { background: rgba(108,99,255,0.10); color: var(--uil-primary); }
+.table-advanced .table-status-pink { background: rgba(232,62,140,0.10); color: var(--uil-pink); }
+.table-advanced .table-status-teal { background: rgba(32,201,151,0.10); color: var(--uil-teal); }
+
+
+/* ============================================================
+   سیستم اعلان (Toast/Alert) حرفه‌ای
+   ============================================================ */
+
+.toast-container {
+  position: fixed;
+  top: var(--uil-space-5);
+  right: var(--uil-space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--uil-space-3);
+  z-index: 9999;
+  max-width: 380px;
+  width: 100%;
+}
+.toast {
+  padding: var(--uil-space-4) var(--uil-space-5);
+  border-radius: var(--uil-radius);
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  box-shadow: var(--uil-shadow-lg);
+  color: var(--uil-text);
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-3);
+  animation: slideRightIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.toast .toast-icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+.toast .toast-content { flex: 1; }
+.toast .toast-title { font-weight: 600; font-size: var(--uil-font-size-sm); }
+.toast .toast-message { font-size: var(--uil-font-size-sm); color: var(--uil-text-muted); }
+.toast .toast-close {
+  background: none;
+  border: none;
+  color: var(--uil-text-muted);
+  cursor: pointer;
+  font-size: var(--uil-font-size-xl);
+  transition: all var(--uil-transition-elastic);
+}
+.toast .toast-close:hover { color: var(--uil-text); transform: rotate(90deg); }
+.toast-success { border-right: 4px solid var(--uil-success); }
+.toast-danger { border-right: 4px solid var(--uil-danger); }
+.toast-warning { border-right: 4px solid var(--uil-warning); }
+.toast-primary { border-right: 4px solid var(--uil-primary); }
+.toast-pink { border-right: 4px solid var(--uil-pink); }
+.toast-teal { border-right: 4px solid var(--uil-teal); }
+
+/* اعلان‌های موقعیت‌های مختلف */
+.toast-container-bottom {
+  top: auto;
+  bottom: var(--uil-space-5);
+  right: var(--uil-space-5);
+}
+.toast-container-left {
+  right: auto;
+  left: var(--uil-space-5);
+}
+.toast-container-center {
+  right: 50%;
+  transform: translateX(50%);
+}
+
+
+/* ============================================================
+   حالت‌های المان‌ها (غیرفعال، بارگذاری، خطا، موفقیت)
+   ============================================================ */
+
+/* غیرفعال */
+.disabled {
+  opacity: 0.5;
+  pointer-events: none;
+  user-select: none;
+}
+.disabled-opacity { opacity: 0.4; }
+.disabled-pointer { pointer-events: none; }
+.disabled-all {
+  opacity: 0.4;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* بارگذاری */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+.loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.20);
+  backdrop-filter: blur(2px);
+  border-radius: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.loading-spinner::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 30px;
+  height: 30px;
+  border: 3px solid rgba(255,255,255,0.10);
+  border-top-color: var(--uil-primary);
+  border-radius: 50%;
+  animation: spinElastic 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+  z-index: 1;
+}
+
+/* حالت‌های موفقیت و خطا */
+.has-success { border-color: var(--uil-success) !important; box-shadow: 0 0 0 4px rgba(40,167,69,0.08) !important; }
+.has-danger { border-color: var(--uil-danger) !important; box-shadow: 0 0 0 4px rgba(220,53,69,0.08) !important; }
+.has-warning { border-color: var(--uil-warning) !important; box-shadow: 0 0 0 4px rgba(255,193,7,0.08) !important; }
+.has-primary { border-color: var(--uil-primary) !important; box-shadow: 0 0 0 4px rgba(108,99,255,0.08) !important; }
+.has-pink { border-color: var(--uil-pink) !important; box-shadow: 0 0 0 4px rgba(232,62,140,0.08) !important; }
+.has-teal { border-color: var(--uil-teal) !important; box-shadow: 0 0 0 4px rgba(32,201,151,0.08) !important; }
+
+/* فرم با خطا */
+.form-error {
+  color: var(--uil-danger);
+  font-size: var(--uil-font-size-sm);
+  margin-top: var(--uil-space-1);
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-1);
+}
+.form-error::before {
+  content: '⚠️';
+  font-size: 0.8rem;
+}
+.form-success-text {
+  color: var(--uil-success);
+  font-size: var(--uil-font-size-sm);
+  margin-top: var(--uil-space-1);
+  display: flex;
+  align-items: center;
+  gap: var(--uil-space-1);
+}
+.form-success-text::before {
+  content: '✅';
+  font-size: 0.8rem;
+}
+
+
+/* ============================================================
+   سیستم گرید پیشرفته (Offset, Order, Nesting)
+   ============================================================ */
+
+/* Offset (جا به جایی ستون‌ها) */
+.offset-1 { margin-left: 8.333%; }
+.offset-2 { margin-left: 16.666%; }
+.offset-3 { margin-left: 25%; }
+.offset-4 { margin-left: 33.333%; }
+.offset-5 { margin-left: 41.666%; }
+.offset-6 { margin-left: 50%; }
+.offset-7 { margin-left: 58.333%; }
+.offset-8 { margin-left: 66.666%; }
+.offset-9 { margin-left: 75%; }
+.offset-10 { margin-left: 83.333%; }
+.offset-11 { margin-left: 91.666%; }
+
+/* Order (ترتیب المان‌ها) */
+.order-first { order: -1; }
+.order-0 { order: 0; }
+.order-1 { order: 1; }
+.order-2 { order: 2; }
+.order-3 { order: 3; }
+.order-4 { order: 4; }
+.order-5 { order: 5; }
+.order-last { order: 6; }
+
+/* Nesting (تو رفتگی) */
+.nested-grid .row { margin: 0 -8px; }
+.nested-grid [class^="col-"] { padding: 0 8px; }
+
+
+/* ============================================================
+   کلاس‌های واکنش‌گرایی تکمیلی
+   ============================================================ */
+
+/* نمایش در اندازه‌های مختلف */
+@media (max-width: 576px) {
+  .d-xs-none { display: none !important; }
+  .d-xs-block { display: block !important; }
+  .d-xs-flex { display: flex !important; }
+  .d-xs-grid { display: grid !important; }
+  .text-xs-center { text-align: center !important; }
+  .text-xs-left { text-align: left !important; }
+  .text-xs-right { text-align: right !important; }
+  .flex-xs-column { flex-direction: column !important; }
+  .flex-xs-row { flex-direction: row !important; }
+}
+@media (min-width: 576px) {
+  .d-sm-none { display: none !important; }
+  .d-sm-block { display: block !important; }
+  .d-sm-flex { display: flex !important; }
+  .d-sm-grid { display: grid !important; }
+  .text-sm-center { text-align: center !important; }
+  .text-sm-left { text-align: left !important; }
+  .text-sm-right { text-align: right !important; }
+}
+@media (min-width: 768px) {
+  .d-md-none { display: none !important; }
+  .d-md-block { display: block !important; }
+  .d-md-flex { display: flex !important; }
+  .d-md-grid { display: grid !important; }
+  .text-md-center { text-align: center !important; }
+  .text-md-left { text-align: left !important; }
+  .text-md-right { text-align: right !important; }
+}
+@media (min-width: 992px) {
+  .d-lg-none { display: none !important; }
+  .d-lg-block { display: block !important; }
+  .d-lg-flex { display: flex !important; }
+  .d-lg-grid { display: grid !important; }
+  .text-lg-center { text-align: center !important; }
+  .text-lg-left { text-align: left !important; }
+  .text-lg-right { text-align: right !important; }
+}
+@media (min-width: 1200px) {
+  .d-xl-none { display: none !important; }
+  .d-xl-block { display: block !important; }
+  .d-xl-flex { display: flex !important; }
+  .d-xl-grid { display: grid !important; }
+  .text-xl-center { text-align: center !important; }
+  .text-xl-left { text-align: left !important; }
+  .text-xl-right { text-align: right !important; }
+}
+
+/* کلاس‌های responsive برای فاصله‌ها */
+@media (max-width: 768px) {
+  .m-sm-0 { margin: 0 !important; }
+  .p-sm-0 { padding: 0 !important; }
+  .gap-sm-0 { gap: 0 !important; }
+  .m-sm-1 { margin: 4px !important; }
+  .p-sm-1 { padding: 4px !important; }
+  .gap-sm-1 { gap: 4px !important; }
+  .m-sm-2 { margin: 8px !important; }
+  .p-sm-2 { padding: 8px !important; }
+  .gap-sm-2 { gap: 8px !important; }
+  .m-sm-3 { margin: 12px !important; }
+  .p-sm-3 { padding: 12px !important; }
+  .gap-sm-3 { gap: 12px !important; }
+  .m-sm-4 { margin: 16px !important; }
+  .p-sm-4 { padding: 16px !important; }
+  .gap-sm-4 { gap: 16px !important; }
+  .m-sm-5 { margin: 24px !important; }
+  .p-sm-5 { padding: 24px !important; }
+  .gap-sm-5 { gap: 24px !important; }
+}
+
+/* ============================================================
+   سیستم مودال‌های پیشرفته (Success, Error, Loading, Promo, etc.)
+   ============================================================ */
+
+/* ----- مودال پایه ----- */
+.modal-advanced {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+  animation: modalBackdrop 0.3s ease forwards;
+}
+.modal-advanced.active {
+  display: flex;
+}
+.modal-advanced .modal-box {
+  max-width: 520px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--uil-shadow-xl);
+  position: relative;
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-advanced.active .modal-box {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.modal-advanced .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: none;
+  color: var(--uil-text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  line-height: 1;
+}
+.modal-advanced .modal-close:hover {
+  color: var(--uil-text);
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+.modal-advanced .modal-icon {
+  font-size: 4rem;
+  text-align: center;
+  display: block;
+  margin-bottom: 16px;
+}
+.modal-advanced .modal-title {
+  font-size: var(--uil-font-size-2xl);
+  font-weight: 700;
+  color: var(--uil-text);
+  text-align: center;
+  margin-bottom: 8px;
+}
+.modal-advanced .modal-text {
+  color: var(--uil-text-muted);
+  text-align: center;
+  margin-bottom: 24px;
+}
+.modal-advanced .modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ----- ۱. مودال موفقیت (Success) ----- */
+.modal-success .modal-box {
+  border-top: 4px solid var(--uil-success);
+}
+.modal-success .modal-icon {
+  color: var(--uil-success);
+}
+.modal-success .modal-title {
+  color: var(--uil-success);
+}
+
+
+/* ----- ۲. مودال خطا (Error) ----- */
+.modal-error .modal-box {
+  border-top: 4px solid var(--uil-danger);
+}
+.modal-error .modal-icon {
+  color: var(--uil-danger);
+}
+.modal-error .modal-title {
+  color: var(--uil-danger);
+}
+
+
+/* ----- ۳. مودال در حال بررسی (Loading) ----- */
+.modal-loading .modal-box {
+  border-top: 4px solid var(--uil-primary);
+  text-align: center;
+}
+.modal-loading .modal-icon {
+  color: var(--uil-primary);
+  animation: spinElastic 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) infinite;
+}
+.modal-loading .modal-title {
+  color: var(--uil-primary);
+}
+.modal-loading .modal-progress {
+  width: 100%;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  margin: 20px 0 12px;
+}
+.modal-loading .modal-progress-bar {
+  height: 100%;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--uil-primary), var(--uil-pink));
+  width: 0%;
+  transition: width 0.5s ease;
+  animation: progressPulse 1.5s ease-in-out infinite;
+}
+@keyframes progressPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
+/* ----- ۴. مودال هشدار (Warning) ----- */
+.modal-warning .modal-box {
+  border-top: 4px solid var(--uil-warning);
+}
+.modal-warning .modal-icon {
+  color: var(--uil-warning);
+}
+.modal-warning .modal-title {
+  color: var(--uil-warning);
+}
+
+
+/* ----- ۵. مودال اطلاع‌رسانی (Info) ----- */
+.modal-info .modal-box {
+  border-top: 4px solid var(--uil-info);
+}
+.modal-info .modal-icon {
+  color: var(--uil-info);
+}
+.modal-info .modal-title {
+  color: var(--uil-info);
+}
+
+
+/* ----- ۶. مودال تأیید (Confirm) ----- */
+.modal-confirm .modal-box {
+  border-top: 4px solid var(--uil-primary);
+}
+.modal-confirm .modal-icon {
+  color: var(--uil-primary);
+}
+.modal-confirm .modal-title {
+  color: var(--uil-text);
+}
+.modal-confirm .modal-actions {
+  justify-content: center;
+}
+
+
+/* ----- ۷. مودال آفر فروش (Promo) ----- */
+.modal-promo .modal-box {
+  border-top: 4px solid var(--uil-pink);
+  background: linear-gradient(145deg, rgba(232, 62, 140, 0.08), rgba(108, 99, 255, 0.04));
+  border: 2px solid rgba(232, 62, 140, 0.15);
+  box-shadow: 0 0 60px rgba(232, 62, 140, 0.04);
+}
+.modal-promo .modal-icon {
+  color: var(--uil-pink);
+  font-size: 5rem;
+}
+.modal-promo .modal-title {
+  color: var(--uil-pink);
+}
+.modal-promo .modal-text {
+  color: var(--uil-text-muted);
+}
+.modal-promo .modal-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--uil-pink);
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+
+/* ----- ۸. مودال خبرنامه (Newsletter) ----- */
+.modal-newsletter .modal-box {
+  border-top: 4px solid var(--uil-teal);
+}
+.modal-newsletter .modal-icon {
+  color: var(--uil-teal);
+}
+.modal-newsletter .modal-title {
+  color: var(--uil-teal);
+}
+.modal-newsletter .modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 16px;
+}
+.modal-newsletter .modal-form input {
+  width: 100%;
+  padding: 14px 18px;
+  border-radius: var(--uil-radius-sm);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: var(--uil-text);
+  font-family: var(--uil-font);
+  outline: none;
+  transition: all var(--uil-transition-elastic);
+}
+.modal-newsletter .modal-form input:focus {
+  border-color: var(--uil-teal);
+  box-shadow: 0 0 0 4px rgba(32, 201, 151, 0.08);
+}
+
+
+/* ----- ۹. مودال تصویری (Image) ----- */
+.modal-image .modal-box {
+  max-width: 640px;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  border: none;
+  box-shadow: var(--uil-shadow-xl);
+}
+.modal-image .modal-box img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: var(--uil-radius-xl);
+}
+.modal-image .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.40);
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+.modal-image .modal-close:hover {
+  background: rgba(0, 0, 0, 0.60);
+}
+
+
+/* ----- ۱۰. مودال ویدیویی (Video) ----- */
+.modal-video .modal-box {
+  max-width: 800px;
+  padding: 0;
+  overflow: hidden;
+  background: #000;
+  border: none;
+  box-shadow: var(--uil-shadow-xl);
+}
+.modal-video .modal-box video,
+.modal-video .modal-box iframe {
+  width: 100%;
+  aspect-ratio: 16/9;
+  display: block;
+  border-radius: var(--uil-radius-xl);
+}
+.modal-video .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: rgba(0, 0, 0, 0.40);
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+.modal-video .modal-close:hover {
+  background: rgba(0, 0, 0, 0.60);
+}
+
+
+/* ============================================================
+   مودال‌های با اندازه‌های مختلف
+   ============================================================ */
+
+.modal-xs .modal-box { max-width: 320px; }
+.modal-sm .modal-box { max-width: 420px; }
+.modal-md .modal-box { max-width: 560px; }
+.modal-lg .modal-box { max-width: 720px; }
+.modal-xl .modal-box { max-width: 920px; }
+.modal-full .modal-box { max-width: 95vw; max-height: 95vh; }
+
+
+/* ============================================================
+   مودال‌های با موقعیت‌های مختلف
+   ============================================================ */
+
+.modal-top {
+  align-items: flex-start;
+  padding-top: 60px;
+}
+.modal-top .modal-box {
+  animation: slideDownIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.modal-bottom {
+  align-items: flex-end;
+  padding-bottom: 40px;
+}
+.modal-bottom .modal-box {
+  animation: slideUpIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.modal-left {
+  justify-content: flex-start;
+  padding-left: 40px;
+}
+.modal-left .modal-box {
+  animation: slideLeftIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.modal-right {
+  justify-content: flex-end;
+  padding-right: 40px;
+}
+.modal-right .modal-box {
+  animation: slideRightIn 0.5s var(--uil-transition-elastic) forwards;
+}
+
+
+/* ============================================================
+   نوارهای چسبنده به پایین سایت (Sticky Bars)
+   ============================================================ */
+
+/* ----- نوار چسبنده پایین (کلی) ----- */
+.sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border-top: 1px solid var(--uil-border-card);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.08);
+  animation: slideUpIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.sticky-bar .sticky-text {
+  color: var(--uil-text);
+  font-size: var(--uil-font-size-sm);
+}
+.sticky-bar .sticky-text strong {
+  color: var(--uil-primary);
+}
+.sticky-bar .sticky-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.sticky-bar .sticky-close {
+  background: none;
+  border: none;
+  color: var(--uil-text-muted);
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all var(--uil-transition-elastic);
+}
+.sticky-bar .sticky-close:hover {
+  color: var(--uil-text);
+  transform: rotate(90deg);
+}
+
+/* ----- نوار چسبنده پایین با رنگ‌های مختلف ----- */
+.sticky-bar-primary { border-top: 3px solid var(--uil-primary); }
+.sticky-bar-success { border-top: 3px solid var(--uil-success); }
+.sticky-bar-danger { border-top: 3px solid var(--uil-danger); }
+.sticky-bar-warning { border-top: 3px solid var(--uil-warning); }
+.sticky-bar-pink { border-top: 3px solid var(--uil-pink); }
+.sticky-bar-teal { border-top: 3px solid var(--uil-teal); }
+
+/* ----- نوار چسبنده بالا (Header) ----- */
+.sticky-bar-top {
+  bottom: auto;
+  top: 0;
+  border-top: none;
+  border-bottom: 1px solid var(--uil-border-card);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  animation: slideDownIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.sticky-bar-top.sticky-bar-primary { border-bottom: 3px solid var(--uil-primary); }
+.sticky-bar-top.sticky-bar-success { border-bottom: 3px solid var(--uil-success); }
+.sticky-bar-top.sticky-bar-danger { border-bottom: 3px solid var(--uil-danger); }
+.sticky-bar-top.sticky-bar-pink { border-bottom: 3px solid var(--uil-pink); }
+.sticky-bar-top.sticky-bar-teal { border-bottom: 3px solid var(--uil-teal); }
+
+/* ----- نوار چسبنده با انیمیشن ورود از چپ ----- */
+.sticky-bar-left {
+  bottom: auto;
+  top: 50%;
+  left: 0;
+  right: auto;
+  transform: translateY(-50%);
+  border-top: none;
+  border-right: 1px solid var(--uil-border-card);
+  border-radius: 0 var(--uil-radius) var(--uil-radius) 0;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px 16px;
+  max-width: 280px;
+  width: auto;
+  animation: slideLeftIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.sticky-bar-left .sticky-text { font-size: var(--uil-font-size-sm); }
+.sticky-bar-left.sticky-bar-primary { border-right: 3px solid var(--uil-primary); }
+.sticky-bar-left.sticky-bar-success { border-right: 3px solid var(--uil-success); }
+.sticky-bar-left.sticky-bar-danger { border-right: 3px solid var(--uil-danger); }
+
+/* ----- نوار چسبنده راست ----- */
+.sticky-bar-right {
+  bottom: auto;
+  top: 50%;
+  right: 0;
+  left: auto;
+  transform: translateY(-50%);
+  border-top: none;
+  border-left: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius) 0 0 var(--uil-radius);
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 20px 16px;
+  max-width: 280px;
+  width: auto;
+  animation: slideRightIn 0.5s var(--uil-transition-elastic) forwards;
+}
+.sticky-bar-right .sticky-text { font-size: var(--uil-font-size-sm); }
+.sticky-bar-right.sticky-bar-primary { border-left: 3px solid var(--uil-primary); }
+.sticky-bar-right.sticky-bar-success { border-left: 3px solid var(--uil-success); }
+.sticky-bar-right.sticky-bar-danger { border-left: 3px solid var(--uil-danger); }
+
+
+/* ============================================================
+   دکمه‌های شناور (Floating Buttons)
+   ============================================================ */
+
+/* ----- دکمه شناور پایه ----- */
+.float-btn {
+  position: fixed;
+  z-index: 999;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  color: #fff;
+  background: var(--uil-primary);
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--uil-shadow-lg);
+  transition: all var(--uil-transition-elastic);
+  text-decoration: none;
+}
+.float-btn:hover {
+  transform: scale(1.08) translateY(-4px);
+  box-shadow: var(--uil-shadow-xl);
+}
+.float-btn:active {
+  transform: scale(0.92);
+}
+
+/* ----- موقعیت‌های دکمه شناور ----- */
+.float-btn-bottom-right {
+  bottom: 24px;
+  right: 24px;
+}
+.float-btn-bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+.float-btn-top-right {
+  top: 24px;
+  right: 24px;
+}
+.float-btn-top-left {
+  top: 24px;
+  left: 24px;
+}
+.float-btn-center-right {
+  top: 50%;
+  right: 24px;
+  transform: translateY(-50%);
+}
+.float-btn-center-left {
+  top: 50%;
+  left: 24px;
+  transform: translateY(-50%);
+}
+
+/* ----- رنگ‌های دکمه شناور ----- */
+.float-btn-primary { background: var(--uil-primary); }
+.float-btn-primary:hover { background: var(--uil-primary-dark); }
+.float-btn-success { background: var(--uil-success); }
+.float-btn-success:hover { background: var(--uil-success-dark, #1e7e34); }
+.float-btn-danger { background: var(--uil-danger); }
+.float-btn-danger:hover { background: var(--uil-danger-dark, #b02a37); }
+.float-btn-pink { background: var(--uil-pink); }
+.float-btn-pink:hover { background: var(--uil-pink-dark, #c8238c); }
+.float-btn-teal { background: var(--uil-teal); }
+.float-btn-teal:hover { background: var(--uil-teal-dark, #15967a); }
+.float-btn-warning { background: var(--uil-warning); color: #1a1a2e; }
+.float-btn-warning:hover { background: var(--uil-warning-dark, #e0a800); color: #1a1a2e; }
+.float-btn-light { background: #fff; color: #1a1a2e; }
+.float-btn-light:hover { background: #f0f0f0; color: #1a1a2e; }
+.float-btn-dark { background: #1a1a2e; color: #fff; }
+.float-btn-dark:hover { background: #0d0d1a; color: #fff; }
+
+/* ----- اندازه‌های دکمه شناور ----- */
+.float-btn-sm { width: 40px; height: 40px; font-size: 1rem; }
+.float-btn-lg { width: 72px; height: 72px; font-size: 2rem; }
+.float-btn-xl { width: 88px; height: 88px; font-size: 2.5rem; }
+
+/* ----- دکمه شناور با سایه ---------- */
+.float-btn-shadow { box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15); }
+.float-btn-shadow:hover { box-shadow: 0 12px 48px rgba(0, 0, 0, 0.22); }
+.float-btn-shadow-primary { box-shadow: 0 8px 32px rgba(108, 99, 255, 0.25); }
+.float-btn-shadow-primary:hover { box-shadow: 0 12px 48px rgba(108, 99, 255, 0.35); }
+.float-btn-shadow-success { box-shadow: 0 8px 32px rgba(40, 167, 69, 0.25); }
+.float-btn-shadow-success:hover { box-shadow: 0 12px 48px rgba(40, 167, 69, 0.35); }
+.float-btn-shadow-danger { box-shadow: 0 8px 32px rgba(220, 53, 69, 0.25); }
+.float-btn-shadow-danger:hover { box-shadow: 0 12px 48px rgba(220, 53, 69, 0.35); }
+.float-btn-shadow-pink { box-shadow: 0 8px 32px rgba(232, 62, 140, 0.25); }
+.float-btn-shadow-pink:hover { box-shadow: 0 12px 48px rgba(232, 62, 140, 0.35); }
+
+
+/* ----- دکمه شناور با برچسب ----- */
+.float-btn-label {
+  position: fixed;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 20px 10px 16px;
+  border-radius: var(--uil-radius-full);
+  background: var(--uil-primary);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  box-shadow: var(--uil-shadow-lg);
+  transition: all var(--uil-transition-elastic);
+  text-decoration: none;
+  font-family: var(--uil-font);
+  font-weight: 500;
+}
+.float-btn-label:hover {
+  transform: scale(1.04) translateY(-3px);
+  box-shadow: var(--uil-shadow-xl);
+}
+.float-btn-label .float-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  background: rgba(255, 255, 255, 0.15);
+}
+.float-btn-label-bottom-right {
+  bottom: 24px;
+  right: 24px;
+}
+.float-btn-label-bottom-left {
+  bottom: 24px;
+  left: 24px;
+}
+.float-btn-label-top-right {
+  top: 24px;
+  right: 24px;
+}
+.float-btn-label-top-left {
+  top: 24px;
+  left: 24px;
+}
+.float-btn-label-primary { background: var(--uil-primary); }
+.float-btn-label-success { background: var(--uil-success); }
+.float-btn-label-danger { background: var(--uil-danger); }
+.float-btn-label-pink { background: var(--uil-pink); }
+.float-btn-label-teal { background: var(--uil-teal); }
+.float-btn-label-warning { background: var(--uil-warning); color: #1a1a2e; }
+
+
+/* ============================================================
+   مربع‌های گوشه‌گرد با ضربدر (Corner Boxes)
+   ============================================================ */
+
+/* ----- مربع گوشه‌گرد پایه ----- */
+.corner-box {
+  position: fixed;
+  z-index: 998;
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-lg);
+  padding: 20px 24px;
+  box-shadow: var(--uil-shadow-lg);
+  max-width: 340px;
+  width: 100%;
+  animation: elasticIn 0.5s var(--uil-transition-elastic) forwards;
+  transition: all var(--uil-transition-elastic);
+}
+.corner-box .corner-close {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  color: var(--uil-text-muted);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+  line-height: 1;
+}
+.corner-box .corner-close:hover {
+  color: var(--uil-text);
+  transform: rotate(90deg) scale(1.1);
+}
+.corner-box .corner-title {
+  font-weight: 600;
+  color: var(--uil-text);
+  margin-bottom: 4px;
+  font-size: var(--uil-font-size-sm);
+}
+.corner-box .corner-text {
+  color: var(--uil-text-muted);
+  font-size: var(--uil-font-size-sm);
+}
+
+/* ----- موقعیت‌های مربع گوشه‌گرد ----- */
+.corner-box-top-right {
+  top: 20px;
+  right: 20px;
+}
+.corner-box-top-left {
+  top: 20px;
+  left: 20px;
+}
+.corner-box-bottom-right {
+  bottom: 20px;
+  right: 20px;
+}
+.corner-box-bottom-left {
+  bottom: 20px;
+  left: 20px;
+}
+.corner-box-center-right {
+  top: 50%;
+  right: 20px;
+  transform: translateY(-50%);
+}
+.corner-box-center-left {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+}
+
+/* ----- رنگ‌های مربع گوشه‌گرد ----- */
+.corner-box-primary { border-top: 4px solid var(--uil-primary); }
+.corner-box-primary .corner-title { color: var(--uil-primary); }
+.corner-box-success { border-top: 4px solid var(--uil-success); }
+.corner-box-success .corner-title { color: var(--uil-success); }
+.corner-box-danger { border-top: 4px solid var(--uil-danger); }
+.corner-box-danger .corner-title { color: var(--uil-danger); }
+.corner-box-warning { border-top: 4px solid var(--uil-warning); }
+.corner-box-warning .corner-title { color: var(--uil-warning); }
+.corner-box-pink { border-top: 4px solid var(--uil-pink); }
+.corner-box-pink .corner-title { color: var(--uil-pink); }
+.corner-box-teal { border-top: 4px solid var(--uil-teal); }
+.corner-box-teal .corner-title { color: var(--uil-teal); }
+
+/* ----- اندازه‌های مربع گوشه‌گرد ----- */
+.corner-box-sm { max-width: 260px; padding: 14px 18px; }
+.corner-box-sm .corner-title { font-size: var(--uil-font-size-xs); }
+.corner-box-sm .corner-text { font-size: var(--uil-font-size-xs); }
+.corner-box-lg { max-width: 420px; padding: 28px 32px; }
+.corner-box-lg .corner-title { font-size: var(--uil-font-size-lg); }
+.corner-box-lg .corner-text { font-size: var(--uil-font-size-base); }
+.corner-box-xl { max-width: 520px; padding: 32px 36px; }
+.corner-box-xl .corner-title { font-size: var(--uil-font-size-xl); }
+.corner-box-xl .corner-text { font-size: var(--uil-font-size-lg); }
+
+/* ----- مربع گوشه‌گرد با آیکون ----- */
+.corner-box-icon {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.corner-box-icon .corner-icon {
+  font-size: 1.8rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.corner-box-icon .corner-content { flex: 1; }
+.corner-box-icon .corner-close { top: 8px; right: 10px; }
+
+
+/* ============================================================
+   مودال‌های تبلیغاتی (Promotional Modals)
+   ============================================================ */
+
+/* ----- مودال تبلیغاتی با پس‌زمینه تصویری ----- */
+.modal-ad {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.60);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  padding: 20px;
+}
+.modal-ad.active {
+  display: flex;
+}
+.modal-ad .modal-ad-box {
+  max-width: 560px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  background: var(--uil-bg-card);
+  backdrop-filter: blur(var(--uil-glass-blur));
+  -webkit-backdrop-filter: blur(var(--uil-glass-blur));
+  border: 1px solid var(--uil-border-card);
+  border-radius: var(--uil-radius-xl);
+  padding: 40px 36px;
+  box-shadow: var(--uil-shadow-xl);
+  position: relative;
+  text-align: center;
+  opacity: 0;
+  transform: scale(0.9) translateY(30px);
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.modal-ad.active .modal-ad-box {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
+.modal-ad .modal-ad-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.04);
+  border: none;
+  color: var(--uil-text-muted);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: all var(--uil-transition-elastic);
+}
+.modal-ad .modal-ad-close:hover {
+  color: var(--uil-text);
+  transform: rotate(90deg) scale(1.1);
+  background: rgba(255, 255, 255, 0.08);
+}
+.modal-ad .modal-ad-image {
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: var(--uil-radius);
+  object-fit: cover;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, var(--uil-primary), var(--uil-pink));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #fff;
+}
+.modal-ad .modal-ad-badge {
+  display: inline-block;
+  padding: 4px 16px;
+  border-radius: var(--uil-radius-full);
+  font-size: var(--uil-font-size-xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background: var(--uil-danger);
+  color: #fff;
+  margin-bottom: 12px;
+}
+.modal-ad .modal-ad-title {
+  font-size: var(--uil-font-size-2xl);
+  font-weight: 700;
+  color: var(--uil-text);
+  margin-bottom: 8px;
+}
+.modal-ad .modal-ad-text {
+  color: var(--uil-text-muted);
+  margin-bottom: 20px;
+}
+.modal-ad .modal-ad-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ----- مودال تبلیغاتی با پس‌زمینه گرادیانت ----- */
+.modal-ad-gradient .modal-ad-box {
+  background: linear-gradient(145deg, rgba(108, 99, 255, 0.12), rgba(232, 62, 140, 0.06));
+  border: 2px solid rgba(108, 99, 255, 0.10);
+}
+.modal-ad-gradient .modal-ad-title {
+  color: var(--uil-primary);
+}
+.modal-ad-gradient-pink .modal-ad-box {
+  background: linear-gradient(145deg, rgba(232, 62, 140, 0.12), rgba(108, 99, 255, 0.06));
+  border: 2px solid rgba(232, 62, 140, 0.10);
+}
+.modal-ad-gradient-pink .modal-ad-title {
+  color: var(--uil-pink);
+}
+.modal-ad-gradient-success .modal-ad-box {
+  background: linear-gradient(145deg, rgba(40, 167, 69, 0.10), rgba(32, 201, 151, 0.06));
+  border: 2px solid rgba(40, 167, 69, 0.08);
+}
+.modal-ad-gradient-success .modal-ad-title {
+  color: var(--uil-success);
+}
+
+/* ----- مودال تبلیغاتی با شمارنده معکوس ----- */
+.modal-ad .modal-ad-countdown {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.modal-ad .modal-ad-countdown .count-item {
+  background: rgba(255, 255, 255, 0.04);
+  border-radius: var(--uil-radius-sm);
+  padding: 8px 16px;
+  min-width: 48px;
+  text-align: center;
+}
+.modal-ad .modal-ad-countdown .count-item .count-number {
+  font-size: var(--uil-font-size-2xl);
+  font-weight: 700;
+  color: var(--uil-text);
+}
+.modal-ad .modal-ad-countdown .count-item .count-label {
+  font-size: var(--uil-font-size-xs);
+  color: var(--uil-text-muted);
+}
+
+
+/* ============================================================
+   مودال‌های سفارشی با هدر رنگی
+   ============================================================ */
+
+.modal-header-color .modal-box {
+  padding: 0;
+  overflow: hidden;
+}
+.modal-header-color .modal-header {
+  padding: 20px 28px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.modal-header-color .modal-header .modal-title {
+  color: #fff;
+  margin: 0;
+  font-size: var(--uil-font-size-lg);
+}
+.modal-header-color .modal-header .modal-close {
+  color: rgba(255, 255, 255, 0.6);
+  position: static;
+}
+.modal-header-color .modal-header .modal-close:hover {
+  color: #fff;
+}
+.modal-header-color .modal-body {
+  padding: 28px;
+}
+.modal-header-color .modal-footer {
+  padding: 16px 28px;
+  border-top: 1px solid var(--uil-border-card);
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+.modal-header-primary .modal-header { background: var(--uil-primary); }
+.modal-header-success .modal-header { background: var(--uil-success); }
+.modal-header-danger .modal-header { background: var(--uil-danger); }
+.modal-header-warning .modal-header { background: var(--uil-warning); color: #1a1a2e; }
+.modal-header-warning .modal-header .modal-title { color: #1a1a2e; }
+.modal-header-warning .modal-header .modal-close { color: rgba(26, 26, 46, 0.5); }
+.modal-header-warning .modal-header .modal-close:hover { color: #1a1a2e; }
+.modal-header-pink .modal-header { background: var(--uil-pink); }
+.modal-header-teal .modal-header { background: var(--uil-teal); }
+
+
+/* ============================================================
+   کلاس‌های کمکی برای JS
+   ============================================================ */
+
+/* باز و بسته شدن با JS */
+.modal-open { overflow: hidden; }
+.modal-backdrop { position: fixed; inset: 0; z-index: 9998; background: rgba(0, 0, 0, 0.40); backdrop-filter: blur(8px); }
+
+/* انیمیشن‌های خروج */
+.modal-exit .modal-box {
+  animation: fadeOut 0.3s ease forwards;
+}
+.modal-exit-slide-up .modal-box {
+  animation: slideUpOut 0.4s var(--uil-transition-elastic) forwards;
+}
+@keyframes slideUpOut {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-40px); opacity: 0; }
+}
+.modal-exit-slide-down .modal-box {
+  animation: slideDownOut 0.4s var(--uil-transition-elastic) forwards;
+}
+@keyframes slideDownOut {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(40px); opacity: 0; }
+}
+.modal-exit-scale .modal-box {
+  animation: scaleOut 0.3s ease forwards;
+}
+@keyframes scaleOut {
+  0% { transform: scale(1); opacity: 1; }
+  100% { transform: scale(0.8); opacity: 0; }
+}
+
+
+
+
+
+
+
+
+
+
+
+/* ============================================================
+   لایه ۲۹: کامنت و لایسنس
+   ============================================================ */
+
+/* 
+   ============================================================
+   UIL-G V1.0.0 — ULTIMATE FINAL
+   ============================================================
+   
+   📜 لایسنس: MIT-style with Non-Commercial clause
+   استفاده رایگان برای پروژه‌های شخصی، آموزشی و متن‌باز
+   فروش یا استفاده تجاری بدون اجازه ممنوع است.
+   
+   🧩 ساخته شده توسط لاینکس
+   ⚡ Powered by Linex
+   
+   ============================================================
+   تشکر از الهام‌گیری از Bootstrap, Tailwind, shadcn/ui
+   و همه جامعه متن‌باز
+   ============================================================
+*/
